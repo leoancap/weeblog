@@ -1,7 +1,6 @@
-import React from "react";
-import { Container } from "./styles";
-import { IPost } from "../../types/appTypes";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Container } from "./styles";
 
 // import { Container } from './styles';
 
@@ -14,6 +13,7 @@ interface IOwnProps {}
 type IProps = IDispatchToProps & IStateToProps & IOwnProps;
 
 function PostList({  }: IProps) {
+  useEffect(() => {}, []);
   return (
     <Container>
       <div>hello world</div>

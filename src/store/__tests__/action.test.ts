@@ -1,7 +1,9 @@
-import store from "../";
+import { fetchPosts } from "../post/action";
 
 describe("async fetching posts", () => {
-  it("fetches posts", async () => {
-    expect(true).toEqual(true);
+  it("makes sure the dispatch function is called", async () => {
+    const dispatch = jest.fn();
+    await fetchPosts()(dispatch);
+    expect(dispatch).toBeCalledWith({ type: "FETCH_POSTS_BEGIN" });
   });
 });
