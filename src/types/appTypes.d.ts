@@ -3,5 +3,5 @@ export interface IPost {
   title: string;
   description: string;
   categories: string[];
-  createAt: number;
+  datePosted: number;
 }
