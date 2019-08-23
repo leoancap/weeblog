@@ -1,13 +1,15 @@
 import React from "react";
 import { Provider } from "react-redux";
 
-import Home from "./pages/home";
+import Router from "./router";
 import store from "./store";
+import Global from "./styles/global";
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <Home />
+      <Global />
+      <Router />
     </Provider>
   );
 };

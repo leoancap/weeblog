@@ -1,19 +1,14 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React from "react";
+
 import { Container } from "./styles";
+import { IPost } from "../../types/appTypes";
 
-// import { Container } from './styles';
+interface IProps {
+  posts: IPost[];
+}
 
-interface IDispatchToProps {}
-
-interface IStateToProps {}
-
-interface IOwnProps {}
-
-type IProps = IDispatchToProps & IStateToProps & IOwnProps;
-
-function PostList({  }: IProps) {
-  useEffect(() => {}, []);
+function PostList({ posts }: IProps) {
+  console.log(posts);
   return (
     <Container>
       <div>hello world</div>
@@ -21,4 +16,4 @@ function PostList({  }: IProps) {
   );
 }
 
-export default connect()(PostList);
+export default PostList;

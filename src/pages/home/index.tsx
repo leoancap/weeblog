@@ -4,9 +4,10 @@ import { ThunkDispatch } from "redux-thunk";
 
 import { fetchPosts } from "../../store/post/action";
 import { IAppActions, IAppState } from "../../store/types";
-import { Container } from "./styles";
+import { Container, ErrorMessage } from "./styles";
 import { bindActionCreators } from "redux";
 import { IPost } from "../../types/appTypes";
+import PostList from "../../components/PostList";
 
 interface IDispatchToProps {
   fetchPosts: () => void;
@@ -18,26 +19,28 @@ interface IStateToProps {
   error: boolean;
 }
 
-interface IOwnProps {}
-
-type IProps = IDispatchToProps & IStateToProps & IOwnProps;
+type IProps = IDispatchToProps & IStateToProps;
 
 function Home({ fetchPosts, posts, loading, error }: IProps) {
   useEffect(() => {
     fetchPosts();
   }, []);
-  console.log(posts);
+
   if (error) {
     return (
       <Container>
-        <h3>There is probable an error with your connection. </h3>
-        <h2>Try again!</h2>
+        <ErrorMessage>
+          There was an error.
+          <br />
+          <br />
+          Try again!
+        </ErrorMessage>
       </Container>
     );
   }
   return (
     <Container>
-      {loading ? <div>loading</div> : <div>hello world</div>}
+      {loading ? <div>loading</div> : <PostList posts={posts}></PostList>}
     </Container>
   );
 }
