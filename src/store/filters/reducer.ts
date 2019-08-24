@@ -1,6 +1,8 @@
+// Global
 import { Reducer } from "redux";
-import { IFilterActions } from "./types";
+// Local
 import FiltersActionCreator from "./actionCreator";
+import IFilterActions from "./types";
 
 interface IFiltersState {
   readonly textSearch: string;
@@ -11,9 +13,7 @@ const filtersInitialState: IFiltersState = {
   categories: [],
 };
 
-export type IFiltersReducer = Reducer<IFiltersState, IFilterActions>;
-
-export const filtersReducer: IFiltersReducer = (
+const filtersReducer: IFiltersReducer = (
   state = filtersInitialState,
   { type, payload },
 ) => {
@@ -37,3 +37,6 @@ export const filtersReducer: IFiltersReducer = (
       return state;
   }
 };
+
+export type IFiltersReducer = Reducer<IFiltersState, IFilterActions>;
+export default filtersReducer;

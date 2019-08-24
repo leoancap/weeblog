@@ -1,6 +1,7 @@
-import { Dispatch } from "redux";
-import { IFilterActions } from "./types";
+// Global
 import FiltersActionCreators from "./actionCreator";
+// Local
+import IFilterActions from "./types";
 
 export const setTextSearch = (payload: string): IFilterActions => ({
   type: FiltersActionCreators.SET_TEXT_SEARCH,

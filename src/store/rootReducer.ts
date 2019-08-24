@@ -1,9 +1,12 @@
+// Global
 import { combineReducers } from "redux";
-
-import { postsReducer } from "./posts/reducer";
+// Local
+import filtersReducer from "./filters/reducer";
+import postsReducer from "./posts/reducer";
 
 const rootReducer = combineReducers({
   postsReducer,
+  filtersReducer,
 });
 
 export default rootReducer;

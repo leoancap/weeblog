@@ -1,5 +1,6 @@
+// Global
 import React from "react";
-
+// Local
 import { useIsScrolled } from "../../customHooks/useIsScrolled";
 import { Logo, NavStyled } from "./styles";
 

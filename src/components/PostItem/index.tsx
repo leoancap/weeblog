@@ -1,19 +1,20 @@
-import React from "react";
+// Global
 import moment from "moment";
-
-import {
-  Container,
-  Title,
-  DatePostedAgo,
-  DatePosted,
-  DateWrapper,
-  Categories,
-  Category,
-  BriefDescription,
-  ReadMore,
-} from "./styles";
+import React from "react";
+// Local
 import { IPost } from "../../types/appTypes";
 import { shortenText } from "../../utils/shortenText";
+import {
+  BriefDescription,
+  Categories,
+  Category,
+  Container,
+  DatePosted,
+  DatePostedAgo,
+  DateWrapper,
+  ReadMore,
+  Title,
+} from "./styles";
 
 export default ({ categories, datePosted, title, description }: IPost) => {
   return (

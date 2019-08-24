@@ -14,7 +14,6 @@ interface IFetchPostsFailure {
 }
 
 // Action Union for Post Actions
-export type IPostsActions =
-  | IFetchPostsBegin
-  | IFetchPostsSuccess
-  | IFetchPostsFailure;
+type IPostsActions = IFetchPostsBegin | IFetchPostsSuccess | IFetchPostsFailure;
+
+export default IPostsActions;

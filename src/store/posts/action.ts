@@ -1,9 +1,10 @@
+// Global
 import { Dispatch } from "redux";
-
+// Local
+import { apiUrl } from "../../appContansts";
 import { IPost } from "../../types/appTypes";
 import PostActionTypes from "./actionCreator";
-import { IPostsActions } from "./types";
-import { apiUrl } from "../../appContansts";
+import IPostsActions from "./types";
 
 export const fetchPostsBegin = (): IPostsActions => ({
   type: PostActionTypes.FETCH_POSTS_BEGIN,

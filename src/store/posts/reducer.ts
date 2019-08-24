@@ -1,9 +1,10 @@
+// Global
 import { Reducer } from "redux";
-
+// Local
+import { LoadingStatus } from "../../appContansts";
 import { IPost } from "../../types/appTypes";
 import PostsActionCreators from "./actionCreator";
-import { IPostsActions } from "./types";
-import { LoadingStatus } from "../../appContansts";
+import IPostsActions from "./types";
 
 interface IPostsState {
   readonly posts: IPost[];
@@ -14,12 +15,7 @@ const postsInitialState: IPostsState = {
   loadingStatus: LoadingStatus.DONE,
 };
 
-export type IPostsReducer = Reducer<IPostsState, IPostsActions>;
-
-export const postsReducer: IPostsReducer = (
-  state = postsInitialState,
-  action,
-) => {
+const postsReducer: IPostsReducer = (state = postsInitialState, action) => {
   switch (action.type) {
     case PostsActionCreators.FETCH_POSTS_BEGIN:
       return {
@@ -41,3 +37,6 @@ export const postsReducer: IPostsReducer = (
       return state;
   }
 };
+
+export type IPostsReducer = Reducer<IPostsState, IPostsActions>;
+export default postsReducer;

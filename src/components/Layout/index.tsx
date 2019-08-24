@@ -1,5 +1,6 @@
+// Global
 import React from "react";
-
+// Local
 import { Container } from "./styles";
 
 interface ILayout {

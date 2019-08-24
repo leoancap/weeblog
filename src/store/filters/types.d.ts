@@ -1,4 +1,3 @@
-import { IPost } from "../../types/appTypes";
 import FilterActionCreator from "./actionCreator";
 
 interface ISetTextSearch {
@@ -16,4 +15,5 @@ interface IRemoveCategory {
 }
 
 // Action Union for Filters Actions
-export type IFilterActions = ISetTextSearch | IAppendCategory | IRemoveCategory;
+type IFilterActions = ISetTextSearch | IAppendCategory | IRemoveCategory;
+export default IFilterActions;
