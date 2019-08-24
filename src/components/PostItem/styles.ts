@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  position: relative;
   padding: 0.7em;
   overflow: hidden;
   border-radius: 3px;
@@ -18,6 +18,8 @@ export const Container = styled.div`
 
 export const Title = styled.h4`
   cursor: pointer;
+  width: 70%;
+  text-overflow: ellipsis;
 `;
 
 export const DateWrapper = styled.div`
@@ -50,7 +52,9 @@ export const ReadMore = styled(Link)`
 `;
 
 export const Categories = styled.div`
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: flex-start;
 `;
 
 export const Category = styled.span`
@@ -59,4 +63,13 @@ export const Category = styled.span`
   &:first-of-type {
     margin-left: 0;
   }
+`;
+
+export const RemoveIconStyled = styled.img`
+  position: absolute;
+  top: 0.7em;
+  right: 0.5em;
+  cursor:pointer;
+  height: 1em;
+  width: 1em;
 `;

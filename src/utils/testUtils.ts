@@ -5,7 +5,7 @@ import { IPost } from '../types/appTypes';
 const createSamplePost = (i: number): IPost => ({
   id: `${i}`,
   title: commerce.productName(),
-  description: lorem.text(),
+  content: lorem.text(),
   categories: [commerce.productAdjective(), commerce.productAdjective()],
   datePosted: date.past().valueOf(),
 });

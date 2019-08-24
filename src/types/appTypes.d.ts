@@ -1,7 +1,7 @@
 export interface IPost {
   id: string;
   title: string;
-  description: string;
+  content: string;
   categories: string[];
   datePosted: number;
 }

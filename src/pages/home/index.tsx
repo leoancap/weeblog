@@ -24,7 +24,11 @@ interface IStateToProps {
 
 type IProps = IDispatchToProps & IStateToProps;
 
-function Home({ fetchPostsDispatch, filteredPosts, loadingStatus }: IProps) {
+function Home({
+  fetchPostsDispatch,
+  filteredPosts,
+  loadingStatus,
+}: IProps) {
   useEffect(() => {
     fetchPostsDispatch();
   }, [fetchPostsDispatch]);
@@ -48,7 +52,9 @@ function Home({ fetchPostsDispatch, filteredPosts, loadingStatus }: IProps) {
       ) : (
         <>
           <CategoryFilter />
-          <PostList posts={filteredPosts} />
+          <PostList
+            posts={filteredPosts}
+          />
         </>
       )}
     </Container>

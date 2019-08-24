@@ -13,15 +13,15 @@ export default ({ posts }: IProps) => (
   <Container>
     {posts.length === 0 ? (<div>no posts</div>) : (
       posts.map(({
-        id, categories, datePosted, title, description,
+        id, categories, datePosted, title, content,
       }) => (
         <PostItem
-          key={id}
-          id={id}
           categories={categories}
+          content={content}
           datePosted={datePosted}
+          id={id}
+          key={id}
           title={title}
-          description={description}
         />
       )))}
   </Container>

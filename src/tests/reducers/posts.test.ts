@@ -1,13 +1,16 @@
-import { createMockedPosts } from "../../utils/testUtils";
+import { createMockedPosts } from '../../utils/testUtils';
 import {
   fetchPostsBegin,
   fetchPostsFailure,
   fetchPostsSuccess,
-} from "../../store/posts/action";
-import postsReducer from "../../store/posts/reducer";
-import { LoadingStatus } from "../../appContansts";
+  removePost,
+} from '../../store/posts/action';
+import postsReducer from '../../store/posts/reducer';
+import { LoadingStatus } from '../../appContansts';
+import { IPost } from '../../types/appTypes';
 
-it("returns initial state if no action passed to it", () => {
+it('returns initial state if no action passed to it', () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
   // @ts-ignore pass no action so that it returns initial state
   expect(postsReducer(undefined, {})).toEqual({
     posts: [],
@@ -15,7 +18,7 @@ it("returns initial state if no action passed to it", () => {
   });
 });
 
-it("begins fetching posts", () => {
+it('begins fetching posts', () => {
   const action = fetchPostsBegin();
   expect(postsReducer(undefined, action)).toEqual({
     posts: [],
@@ -23,7 +26,7 @@ it("begins fetching posts", () => {
   });
 });
 
-it("ends fetching posts with success", () => {
+it('ends fetching posts with success', () => {
   const mockedPosts = createMockedPosts(10);
   const action = fetchPostsSuccess(mockedPosts);
   expect(postsReducer(undefined, action)).toEqual({
@@ -32,10 +35,29 @@ it("ends fetching posts with success", () => {
   });
 });
 
-it("ends fetching posts with failure", () => {
+it('ends fetching posts with failure', () => {
   const action = fetchPostsFailure();
   expect(postsReducer(undefined, action)).toEqual({
     posts: [],
     loadingStatus: LoadingStatus.ERROR,
+  });
+});
+
+it('removes a post given an id', () => {
+  const mockedPost:IPost = {
+    id: '1',
+    title: 'titleExample',
+    content: 'descriptionExample',
+    categories: ['descriptionExample'],
+    datePosted: 1234,
+  };
+  const actionAddPost = fetchPostsSuccess([mockedPost]);
+  const id = '1';
+  const actionRemovePost = removePost(id);
+  expect(
+    postsReducer(postsReducer(undefined, actionAddPost), actionRemovePost),
+  ).toEqual({
+    posts: [],
+    loadingStatus: LoadingStatus.DONE,
   });
 });

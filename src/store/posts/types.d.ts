@@ -1,5 +1,5 @@
-import { IPost } from "../../types/appTypes";
-import PostsActionTypes from "./actionTypes";
+import { IPost } from '../../types/appTypes';
+import PostsActionTypes from './actionTypes';
 
 interface IFetchPostsBegin {
   type: PostsActionTypes.FETCH_POSTS_BEGIN;
@@ -15,7 +15,11 @@ interface IFetchPostsFailure {
   payload: undefined;
 }
 
-// Action Union for Post Actions
-type IPostsActions = IFetchPostsBegin | IFetchPostsSuccess | IFetchPostsFailure;
+interface IRemovePost {
+  type: PostsActionTypes.REMOVE_POST;
+  payload: string;
+}
 
+// Action Union for Post Actions
+type IPostsActions = IFetchPostsBegin | IFetchPostsSuccess | IFetchPostsFailure | IRemovePost;
 export default IPostsActions;

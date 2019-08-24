@@ -1,21 +1,20 @@
 // Global
 import React from 'react';
-// Local
-import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { Dispatch } from 'redux';
+// Local
+import SearchIconSVG from '../../assets/search.svg';
 import { useIsScrolled } from '../../customHooks/useIsScrolled';
+import { setTextSearch } from '../../store/filters/action';
+import { IAppActions, IAppState } from '../../store/types';
 import {
+  AddPost,
   Logo,
   NavStyled,
-  SearchField,
-  SearchBarWrapper,
   SearchBarIcon,
-  AddPost,
+  SearchBarWrapper,
+  SearchField,
 } from './styles';
-import { IAppState, IAppActions } from '../../store/types';
-import { setTextSearch } from '../../store/filters/action';
-import SearchIconSVG from '../../assets/search.svg';
 
 interface IDispatchToProps {
   setTextSearchDispatch: (payload: string) => void;
@@ -57,9 +56,9 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (
-  dispatch: ThunkDispatch<{}, {}, IAppActions>,
+  dispatch: Dispatch<IAppActions>,
 ): IDispatchToProps => ({
-  setTextSearchDispatch: bindActionCreators(setTextSearch, dispatch),
+  setTextSearchDispatch: (textSearch: string) => dispatch(setTextSearch(textSearch)),
 });
 
 export default connect(

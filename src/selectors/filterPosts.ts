@@ -25,4 +25,4 @@ export const filterPostsByText = (
   textSearch:string,
 ):IPost[] => (textSearch.length === 0
   ? posts
-  : posts.filter((post) => post.description.includes(textSearch)));
+  : posts.filter((post) => post.content && post.content.includes(textSearch)));

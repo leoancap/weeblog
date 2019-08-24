@@ -1,10 +1,10 @@
 // Global
-import { Reducer } from "redux";
+import { Reducer } from 'redux';
 // Local
-import { LoadingStatus } from "../../appContansts";
-import { IPost } from "../../types/appTypes";
-import PostsActionTypes from "./actionTypes";
-import IPostsActions from "./types";
+import { LoadingStatus } from '../../appContansts';
+import { IPost } from '../../types/appTypes';
+import PostsActionTypes from './actionTypes';
+import IPostsActions from './types';
 
 interface IPostsState {
   readonly posts: IPost[];
@@ -26,12 +26,20 @@ const postsReducer: IPostsReducer = (state = postsInitialState, action) => {
       return {
         ...state,
         loadingStatus: LoadingStatus.DONE,
-        posts: action.payload as IPost[],
+        posts: [
+          ...action.payload as IPost[],
+          ...state.posts,
+        ],
       };
     case PostsActionTypes.FETCH_POSTS_FAILURE:
       return {
         ...state,
         loadingStatus: LoadingStatus.ERROR,
+      };
+    case PostsActionTypes.REMOVE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post.id !== action.payload),
       };
     default:
       return state;
