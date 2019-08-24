@@ -11,7 +11,7 @@ import { IPost } from '../../types/appTypes';
 import { LoadingStatus } from '../../appContansts';
 import { Container, ErrorMessage } from './styles';
 import CategoryFilter from '../../components/CategoryFilter';
-import { filterPosts } from '../../selectors/filterPosts';
+import { filterPostsByCategory, filterPostsByText } from '../../selectors/filterPosts';
 
 interface IDispatchToProps {
   fetchPostsDispatch: () => void;
@@ -57,9 +57,12 @@ function Home({ fetchPostsDispatch, filteredPosts, loadingStatus }: IProps) {
 
 const mapStateToProps = ({
   postsReducer: { posts, loadingStatus },
-  filtersReducer: { selectedCategories },
+  filtersReducer: { selectedCategories, textSearch },
 }: IAppState): IStateToProps => ({
-  filteredPosts: filterPosts(posts, selectedCategories),
+  filteredPosts: filterPostsByText(
+    filterPostsByCategory(posts, selectedCategories),
+    textSearch,
+  ),
   loadingStatus,
 });
 

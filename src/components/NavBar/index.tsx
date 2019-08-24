@@ -46,7 +46,6 @@ function NavBar({ textSearch, setTextSearchDispatch }: IProps) {
         />
       </SearchBarWrapper>
       <AddPost to="#">Add Post</AddPost>
-
     </NavStyled>
   );
 }

@@ -49,7 +49,7 @@ yarn test
 - Typescript
 - Styled-Components
 
-## Workflow Steps
+## Devopment Steps
 
 1. Add app specific types(Post items)
 2. Create action types(FETCH_POSTS,SET_POSTS)
@@ -59,3 +59,25 @@ yarn test
 6. Hook up types to store
 7. Hook up types to middleware(Thunk)
 8. Hook up types to components
+
+## Requirements
+
+- [x] The main view of the application shows a list of pre-existing blog posts.
+
+ -[x] Each blog post has the following properties:
+        * Title
+        * Date posted
+        * Category(one or more categories which can be used to group posts)
+        * Content
+
+- [x] In the item list of the main view, the title, date posted, and tags of each blog posts are
+displayed.
+
+- [] Clicking on a blog post item in the list will show all the details about that blog post, including
+the actual content.
+
+- [] On each item there is a delete button which when clicked will delete the blog post from the list of 
+blog posts.
+
+- [] New blog posts can be added via a form, which will ask for the Title, Categoriesand the Content of
+the blog post.
