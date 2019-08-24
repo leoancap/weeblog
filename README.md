@@ -1,21 +1,21 @@
-# Wee Bloggy
+# Weeblog
 
 ## Installation
 
-First make sure you have Node installed by downloading it from https://nodejs.org/en/download/current.
+Instal Node by downloading it from https://nodejs.org/en/download/current.
 
 Install the Yarn CLI from https://yarnpkg.com/lang/en/docs/install.
 
 1. Clone project
 
 ```
-git clone -------------------------------
+git clone https://github.com/leoancap/weeblog
 ```
 
 2. cd into folder
 
 ```
-cd ---------------------------
+cd weeblog
 ```
 
 3. Download and install dependencies
