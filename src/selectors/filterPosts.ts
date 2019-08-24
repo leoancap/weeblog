@@ -1,7 +1,6 @@
 import { IPost } from '../types/appTypes';
 
-/**
- *  Returns an array of posts based on
+/** Returns an array of posts based on
  *  the array of selected categories given
  *
  * @param {posts} [posts]

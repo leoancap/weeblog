@@ -1,7 +1,6 @@
 import { IPost } from '../types/appTypes';
 
-/**
- * Returns an array containing all the possible
+/** Returns an array containing all the possible
  * categories with no duplicates given an array of posts.
  *
  * @param {posts} [posts]
