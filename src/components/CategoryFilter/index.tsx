@@ -6,7 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 // Local
 import { toggleCategory } from '../../store/filters/action';
 import { IAppActions, IAppState } from '../../store/types';
-import { getCategoriesFromPosts } from '../../utils/getCategoriesFromPosts';
+import { getCategoriesFromPosts } from '../../selectors/getCategoriesFromPosts';
 import {
   CategoriesListing,
   CategoryHeading,

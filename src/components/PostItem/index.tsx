@@ -31,8 +31,8 @@ export default ({
     </BriefDescription>
     <ReadMore to="#">{'Read ->'}</ReadMore>
     <Categories>
-      {categories.map((category) => (
-        <Category key={category}>
+      {categories.map((category, index) => (
+        <Category key={category + index.valueOf()}>
           {`#${category}`}
         </Category>
       ))}

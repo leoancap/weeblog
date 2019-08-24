@@ -11,19 +11,20 @@ import { IPost } from '../../types/appTypes';
 import { LoadingStatus } from '../../appContansts';
 import { Container, ErrorMessage } from './styles';
 import CategoryFilter from '../../components/CategoryFilter';
+import { filterPosts } from '../../selectors/filterPosts';
 
 interface IDispatchToProps {
   fetchPostsDispatch: () => void;
 }
 
 interface IStateToProps {
-  posts: IPost[];
+  filteredPosts: IPost[];
   loadingStatus: LoadingStatus;
 }
 
 type IProps = IDispatchToProps & IStateToProps;
 
-function Home({ fetchPostsDispatch, posts, loadingStatus }: IProps) {
+function Home({ fetchPostsDispatch, filteredPosts, loadingStatus }: IProps) {
   useEffect(() => {
     fetchPostsDispatch();
   }, [fetchPostsDispatch]);
@@ -47,7 +48,7 @@ function Home({ fetchPostsDispatch, posts, loadingStatus }: IProps) {
       ) : (
         <>
           <CategoryFilter />
-          <PostList posts={posts} />
+          <PostList posts={filteredPosts} />
         </>
       )}
     </Container>
@@ -56,8 +57,9 @@ function Home({ fetchPostsDispatch, posts, loadingStatus }: IProps) {
 
 const mapStateToProps = ({
   postsReducer: { posts, loadingStatus },
+  filtersReducer: { selectedCategories },
 }: IAppState): IStateToProps => ({
-  posts,
+  filteredPosts: filterPosts(posts, selectedCategories),
   loadingStatus,
 });
 

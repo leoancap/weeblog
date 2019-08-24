@@ -19,6 +19,8 @@ interface ICategoryStyled {
 }
 export const CategoryStyled = styled.li<ICategoryStyled>`
   padding: 0.5em 0.2em;
+  margin: 0.3em 0.3em;
+  border-radius: 0.3em;
   cursor: pointer;
   &:hover {
     background: rgba(150, 150, 150, 0.1);
