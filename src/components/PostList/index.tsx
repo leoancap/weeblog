@@ -12,6 +12,7 @@ interface IProps {
 const mockedPosts = createMockedPosts(10);
 
 export default ({ posts }: IProps) => {
+  console.log(JSON.stringify(mockedPosts));
   return (
     <Container>
       {mockedPosts.map(post => (

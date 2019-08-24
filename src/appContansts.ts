@@ -1,5 +1,4 @@
-// export const apiUrl = "https://jsonplaceholder.typicode.com";
-export const apiUrl = "my-json-server.typicode.com/leoancap/weeblog/master";
+export const apiUrl = "https://my-json-server.typicode.com/leoancap/weeblog";
 
 export enum LoadingStatus {
   "LOADING",

@@ -21,7 +21,7 @@ export const fetchPostsFailure = (): IPostsActions => ({
 export const fetchPosts = () => async (dispatch: Dispatch<IPostsActions>) => {
   dispatch(fetchPostsBegin());
   try {
-    const rawResponse = await fetch(apiUrl);
+    const rawResponse = await fetch(apiUrl + "/posts");
     const response = await rawResponse.json();
     dispatch(fetchPostsSuccess(response));
   } catch (_) {
