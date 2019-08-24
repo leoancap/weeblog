@@ -3,7 +3,7 @@ import { Reducer } from "redux";
 // Local
 import { LoadingStatus } from "../../appContansts";
 import { IPost } from "../../types/appTypes";
-import PostsActionCreators from "./actionCreator";
+import PostsActionTypes from "./actionTypes";
 import IPostsActions from "./types";
 
 interface IPostsState {
@@ -17,18 +17,18 @@ const postsInitialState: IPostsState = {
 
 const postsReducer: IPostsReducer = (state = postsInitialState, action) => {
   switch (action.type) {
-    case PostsActionCreators.FETCH_POSTS_BEGIN:
+    case PostsActionTypes.FETCH_POSTS_BEGIN:
       return {
         ...state,
         loadingStatus: LoadingStatus.LOADING,
       };
-    case PostsActionCreators.FETCH_POSTS_SUCCESS:
+    case PostsActionTypes.FETCH_POSTS_SUCCESS:
       return {
         ...state,
         loadingStatus: LoadingStatus.DONE,
-        posts: action.payload,
+        posts: action.payload as IPost[],
       };
-    case PostsActionCreators.FETCH_POSTS_FAILURE:
+    case PostsActionTypes.FETCH_POSTS_FAILURE:
       return {
         ...state,
         loadingStatus: LoadingStatus.ERROR,

@@ -1,16 +1,16 @@
 // Global
 import { Reducer } from "redux";
 // Local
-import FiltersActionCreator from "./actionCreator";
+import filtersActionTypes from "./actionTypes";
 import IFilterActions from "./types";
 
 interface IFiltersState {
   readonly textSearch: string;
-  readonly categories: string[];
+  readonly selectedCategories: string[];
 }
 const filtersInitialState: IFiltersState = {
   textSearch: "",
-  categories: [],
+  selectedCategories: [],
 };
 
 const filtersReducer: IFiltersReducer = (
@@ -18,20 +18,17 @@ const filtersReducer: IFiltersReducer = (
   { type, payload },
 ) => {
   switch (type) {
-    case FiltersActionCreator.SET_TEXT_SEARCH:
+    case filtersActionTypes.SET_TEXT_SEARCH:
       return {
         ...state,
         textSearch: payload,
       };
-    case FiltersActionCreator.APPEND_CATEGORY:
+    case filtersActionTypes.TOGGLE_CATEGORY:
       return {
         ...state,
-        categories: [...state.categories, payload],
-      };
-    case FiltersActionCreator.REMOVE_CATEGORY:
-      return {
-        ...state,
-        categories: state.categories.filter(category => category !== payload),
+        selectedCategories: state.selectedCategories.includes(payload)
+          ? state.selectedCategories.filter(category => category !== payload)
+          : [...state.selectedCategories, payload],
       };
     default:
       return state;

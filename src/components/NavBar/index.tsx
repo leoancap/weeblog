@@ -1,8 +1,8 @@
 // Global
-import React from "react";
+import React from 'react';
 // Local
-import { useIsScrolled } from "../../customHooks/useIsScrolled";
-import { Logo, NavStyled } from "./styles";
+import { useIsScrolled } from '../../customHooks/useIsScrolled';
+import { Logo, NavStyled } from './styles';
 
 export default () => {
   const isScrolled = useIsScrolled();

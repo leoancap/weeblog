@@ -1,18 +1,19 @@
 // Global
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { ThunkDispatch } from "redux-thunk";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 // Local
-import PostList from "../../components/PostList";
-import { fetchPosts } from "../../store/posts/action";
-import { IAppActions, IAppState } from "../../store/types";
-import { IPost } from "../../types/appTypes";
-import { LoadingStatus } from "../../appContansts";
-import { Container, ErrorMessage } from "./styles";
+import PostList from '../../components/PostList';
+import { fetchPosts } from '../../store/posts/action';
+import { IAppActions, IAppState } from '../../store/types';
+import { IPost } from '../../types/appTypes';
+import { LoadingStatus } from '../../appContansts';
+import { Container, ErrorMessage } from './styles';
+import CategoryFilter from '../../components/CategoryFilter';
 
 interface IDispatchToProps {
-  fetchPosts: () => void;
+  fetchPostsDispatch: () => void;
 }
 
 interface IStateToProps {
@@ -22,10 +23,10 @@ interface IStateToProps {
 
 type IProps = IDispatchToProps & IStateToProps;
 
-function Home({ fetchPosts, posts, loadingStatus }: IProps) {
+function Home({ fetchPostsDispatch, posts, loadingStatus }: IProps) {
   useEffect(() => {
-    fetchPosts();
-  }, [fetchPosts]);
+    fetchPostsDispatch();
+  }, [fetchPostsDispatch]);
 
   if (loadingStatus === LoadingStatus.ERROR) {
     return (
@@ -44,7 +45,10 @@ function Home({ fetchPosts, posts, loadingStatus }: IProps) {
       {loadingStatus === LoadingStatus.LOADING ? (
         <div>loading</div>
       ) : (
-        <PostList posts={posts}></PostList>
+        <>
+          <CategoryFilter />
+          <PostList posts={posts} />
+        </>
       )}
     </Container>
   );
@@ -58,9 +62,9 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (
-  dispatch: ThunkDispatch<any, any, IAppActions>,
+  dispatch: ThunkDispatch<{}, {}, IAppActions>,
 ): IDispatchToProps => ({
-  fetchPosts: bindActionCreators(fetchPosts, dispatch),
+  fetchPostsDispatch: bindActionCreators(fetchPosts, dispatch),
 });
 
 export default connect(

@@ -1,19 +1,14 @@
 // Global
-import FiltersActionCreators from "./actionCreator";
+import FiltersActionTypes from './actionTypes';
 // Local
-import IFilterActions from "./types";
+import IFilterActions from './types';
 
 export const setTextSearch = (payload: string): IFilterActions => ({
-  type: FiltersActionCreators.SET_TEXT_SEARCH,
+  type: FiltersActionTypes.SET_TEXT_SEARCH,
   payload,
 });
 
-export const appendCatogory = (payload: string): IFilterActions => ({
-  type: FiltersActionCreators.APPEND_CATEGORY,
-  payload,
-});
-
-export const removeCategory = (payload: string): IFilterActions => ({
-  type: FiltersActionCreators.REMOVE_CATEGORY,
+export const toggleCategory = (payload: string): IFilterActions => ({
+  type: FiltersActionTypes.TOGGLE_CATEGORY,
   payload,
 });

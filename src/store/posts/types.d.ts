@@ -1,8 +1,9 @@
 import { IPost } from "../../types/appTypes";
-import PostsActionTypes from "./actionCreator";
+import PostsActionTypes from "./actionTypes";
 
 interface IFetchPostsBegin {
   type: PostsActionTypes.FETCH_POSTS_BEGIN;
+  payload: undefined;
 }
 interface IFetchPostsSuccess {
   type: PostsActionTypes.FETCH_POSTS_SUCCESS;
@@ -11,6 +12,7 @@ interface IFetchPostsSuccess {
 
 interface IFetchPostsFailure {
   type: PostsActionTypes.FETCH_POSTS_FAILURE;
+  payload: undefined;
 }
 
 // Action Union for Post Actions

@@ -3,11 +3,12 @@ import { Dispatch } from "redux";
 // Local
 import { apiUrl } from "../../appContansts";
 import { IPost } from "../../types/appTypes";
-import PostActionTypes from "./actionCreator";
+import PostActionTypes from "./actionTypes";
 import IPostsActions from "./types";
 
-export const fetchPostsBegin = (): IPostsActions => ({
+export const fetchPostsBegin = (payload?: undefined): IPostsActions => ({
   type: PostActionTypes.FETCH_POSTS_BEGIN,
+  payload,
 });
 
 export const fetchPostsSuccess = (payload: IPost[]): IPostsActions => ({
@@ -15,8 +16,9 @@ export const fetchPostsSuccess = (payload: IPost[]): IPostsActions => ({
   payload,
 });
 
-export const fetchPostsFailure = (): IPostsActions => ({
+export const fetchPostsFailure = (payload?: undefined): IPostsActions => ({
   type: PostActionTypes.FETCH_POSTS_FAILURE,
+  payload,
 });
 
 export const fetchPosts = () => async (dispatch: Dispatch<IPostsActions>) => {

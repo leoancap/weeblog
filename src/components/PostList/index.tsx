@@ -1,24 +1,27 @@
 // Global
-import React from "react";
+import React from 'react';
 // Local
-import { Container } from "./styles";
-import { IPost } from "../../types/appTypes";
-import PostItem from "../PostItem";
-import { createMockedPosts } from "../../utils/testUtils";
+import { Container } from './styles';
+import { IPost } from '../../types/appTypes';
+import PostItem from '../PostItem';
 
 interface IProps {
   posts: IPost[];
 }
 
-const mockedPosts = createMockedPosts(10);
-
-export default ({ posts }: IProps) => {
-  console.log(JSON.stringify(mockedPosts));
-  return (
-    <Container>
-      {mockedPosts.map(post => (
-        <PostItem key={post.id} {...post}></PostItem>
-      ))}
-    </Container>
-  );
-};
+export default ({ posts }: IProps) => (
+  <Container>
+    {posts.map(({
+      id, categories, datePosted, title, description,
+    }) => (
+      <PostItem
+        key={id}
+        id={id}
+        categories={categories}
+        datePosted={datePosted}
+        title={title}
+        description={description}
+      />
+    ))}
+  </Container>
+);

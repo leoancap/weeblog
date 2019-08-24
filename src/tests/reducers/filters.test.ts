@@ -1,38 +1,33 @@
-import FiltersActionCreator from "../../store/filters/actionCreator";
-import filtersReducer from "../../store/filters/reducer";
-import {
-  setTextSearch,
-  appendCatogory,
-  removeCategory,
-} from "../../store/filters/action";
+import filtersReducer from '../../store/filters/reducer';
+import { setTextSearch, toggleCategory } from '../../store/filters/action';
 
-it("returns the initial state if no action given", () => {
+it('returns the initial state if no action given', () => {
   // @ts-ignore
   const state = filtersReducer(undefined, {});
   expect(state).toEqual({
-    textSearch: "",
-    categories: [],
+    textSearch: '',
+    selectedCategories: [],
   });
 });
 
-it("should set textSearch filter", () => {
-  const payload = "ergonomic";
+it('should set textSearch filter', () => {
+  const payload = 'ergonomic';
   const state = filtersReducer(undefined, setTextSearch(payload));
   expect(state.textSearch).toBe(payload);
 });
 
-it("should append category filter", () => {
-  const payload = "ergonomic";
-  const state = filtersReducer(undefined, appendCatogory(payload));
-  expect(state.categories).toEqual([payload]);
+it('should append category filter', () => {
+  const payload = 'ergonomic';
+  const state = filtersReducer(undefined, toggleCategory(payload));
+  expect(state.selectedCategories).toEqual([payload]);
 });
 
-it("should remove category filter", () => {
-  const payload = "ergonomic";
+it('should remove category filter if already exist', () => {
+  const payload = 'ergonomic';
   const initialState = {
-    textSearch: "",
-    categories: ["sampleFilter", payload],
+    textSearch: '',
+    selectedCategories: ['sampleFilter', payload],
   };
-  const state = filtersReducer(initialState, removeCategory(payload));
-  expect(state.categories).toEqual(["sampleFilter"]);
+  const state = filtersReducer(initialState, toggleCategory(payload));
+  expect(state.selectedCategories).toEqual(['sampleFilter']);
 });

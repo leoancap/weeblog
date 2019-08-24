@@ -1,19 +1,14 @@
-import FilterActionCreator from "./actionCreator";
+import FilterActionTypes from "./actionTypes";
 
 interface ISetTextSearch {
-  type: FilterActionCreator.SET_TEXT_SEARCH;
+  type: FilterActionTypes.SET_TEXT_SEARCH;
   payload: string;
 }
-interface IAppendCategory {
-  type: FilterActionCreator.APPEND_CATEGORY;
-  payload: string;
-}
-
-interface IRemoveCategory {
-  type: FilterActionCreator.REMOVE_CATEGORY;
+interface IToggleCategory {
+  type: FilterActionTypes.APPEND_CATEGORY;
   payload: string;
 }
 
 // Action Union for Filters Actions
-type IFilterActions = ISetTextSearch | IAppendCategory | IRemoveCategory;
+type IFilterActions = ISetTextSearch | IToggleCategory;
 export default IFilterActions;

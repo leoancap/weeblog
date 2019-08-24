@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 0.5em;
+  margin: 0 auto;
+  max-width: 98%;
+  width: 50em;
 `;
 
 export const ErrorMessage = styled.h3`

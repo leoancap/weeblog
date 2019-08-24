@@ -1,0 +1,4 @@
+export default {
+  SET_TEXT_SEARCH: 'SET_TEXT_SEARCH',
+  TOGGLE_CATEGORY: 'TOGGLE_CATEGORY',
+};

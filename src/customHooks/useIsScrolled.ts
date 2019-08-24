@@ -1,15 +1,7 @@
-import React from "react";
+import React from 'react';
 
 export const useIsScrolled = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
 
   const onScroll = () => {
     const scrollTop = document.body !== undefined ? document.body.scrollTop : 0;
@@ -17,6 +9,15 @@ export const useIsScrolled = () => {
 
     setIsScrolled(isScrolledCurrent);
   };
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
 
   return isScrolled;
 };
