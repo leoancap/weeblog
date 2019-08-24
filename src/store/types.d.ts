@@ -1,4 +1,4 @@
-import { IPostsActions } from "./post/types";
+import { IPostsActions } from "./posts/types";
 import rootReducer from "./rootReducer";
 
 export type IAppState = ReturnType<typeof rootReducer>;

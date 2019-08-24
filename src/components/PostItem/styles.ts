@@ -5,11 +5,13 @@ export const Container = styled.div`
   overflow: hidden;
   border-radius: 3px;
   cursor: pointer;
-  max-width: 96%;
-  margin: 1em auto;
   border-radius: 0.7em;
   border-color: rgba(223, 225, 229, 0);
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  transition: background 0.2s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.08);
+  }
 `;
 
 export const Title = styled.h4`

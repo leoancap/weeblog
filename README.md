@@ -1,12 +1,24 @@
 # Wee Bloggy
 
-## Install
+## Installation
 
 First make sure you have Node installed by downloading it from https://nodejs.org/en/download/current.
 
 Install the Yarn CLI from https://yarnpkg.com/lang/en/docs/install.
 
-Once they have both installed open a command line window in the project root folder and run this to install all dependencies:
+1. Clone project
+
+```
+git clone -------------------------------
+```
+
+2. cd into folder
+
+```
+cd ---------------------------
+```
+
+3. Download and install dependencies
 
 ```
 yarn

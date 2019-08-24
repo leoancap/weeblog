@@ -9,11 +9,13 @@ interface IProps {
   posts: IPost[];
 }
 
+const mockedPosts = samplePosts(10);
+
 export default ({ posts }: IProps) => {
   console.log(samplePosts);
   return (
     <Container>
-      {samplePosts.map(post => (
+      {mockedPosts.map(post => (
         <PostItem key={post.id} {...post}></PostItem>
       ))}
     </Container>

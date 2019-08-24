@@ -12,6 +12,10 @@ const createSamplePost = (i: number): IPost => ({
 
 const makeEmptyArray = (length: number) => new Array(length).fill(null);
 
-export const samplePosts = makeEmptyArray(10).map((_, i) =>
-  createSamplePost(i),
-);
+/**
+ * Creates a sample a posts (mocked with faker)
+ *
+ * @param {number} [length]
+ */
+export const samplePosts = (length: number) =>
+  makeEmptyArray(length).map((_, i) => createSamplePost(i));

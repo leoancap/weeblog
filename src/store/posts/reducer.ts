@@ -3,16 +3,15 @@ import { Reducer } from "redux";
 import { IPost } from "../../types/appTypes";
 import PostsActionCreators from "./actionCreator";
 import { IPostsActions } from "./types";
+import { LoadingStatus } from "../../appContansts";
 
 interface IPostsState {
   readonly posts: IPost[];
-  readonly loading: boolean;
-  readonly error: boolean;
+  readonly loadingStatus: LoadingStatus;
 }
 const postsInitialState: IPostsState = {
   posts: [],
-  loading: false,
-  error: false,
+  loadingStatus: LoadingStatus.DONE,
 };
 
 export type IPostsReducer = Reducer<IPostsState, IPostsActions>;
@@ -25,19 +24,18 @@ export const postsReducer: IPostsReducer = (
     case PostsActionCreators.FETCH_POSTS_BEGIN:
       return {
         ...state,
-        loading: true,
+        loadingStatus: LoadingStatus.LOADING,
       };
     case PostsActionCreators.FETCH_POSTS_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loadingStatus: LoadingStatus.DONE,
         posts: action.payload,
       };
     case PostsActionCreators.FETCH_POSTS_FAILURE:
       return {
         ...state,
-        loading: false,
-        error: true,
+        loadingStatus: LoadingStatus.ERROR,
       };
     default:
       return state;

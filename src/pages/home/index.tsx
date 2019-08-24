@@ -1,13 +1,15 @@
+// Global
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { ThunkDispatch } from "redux-thunk";
-
-import { fetchPosts } from "../../store/post/action";
-import { IAppActions, IAppState } from "../../store/types";
-import { Container, ErrorMessage } from "./styles";
 import { bindActionCreators } from "redux";
-import { IPost } from "../../types/appTypes";
+import { ThunkDispatch } from "redux-thunk";
+// Local
 import PostList from "../../components/PostList";
+import { fetchPosts } from "../../store/posts/action";
+import { IAppActions, IAppState } from "../../store/types";
+import { IPost } from "../../types/appTypes";
+import { LoadingStatus } from "../../appContansts";
+import { Container, ErrorMessage } from "./styles";
 
 interface IDispatchToProps {
   fetchPosts: () => void;
@@ -15,18 +17,17 @@ interface IDispatchToProps {
 
 interface IStateToProps {
   posts: IPost[];
-  loading: boolean;
-  error: boolean;
+  loadingStatus: LoadingStatus;
 }
 
 type IProps = IDispatchToProps & IStateToProps;
 
-function Home({ fetchPosts, posts, loading, error }: IProps) {
+function Home({ fetchPosts, posts, loadingStatus }: IProps) {
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [fetchPosts]);
 
-  if (error) {
+  if (loadingStatus === LoadingStatus.ERROR) {
     return (
       <Container>
         <ErrorMessage>
@@ -40,15 +41,20 @@ function Home({ fetchPosts, posts, loading, error }: IProps) {
   }
   return (
     <Container>
-      {loading ? <div>loading</div> : <PostList posts={posts}></PostList>}
+      {loadingStatus === LoadingStatus.LOADING ? (
+        <div>loading</div>
+      ) : (
+        <PostList posts={posts}></PostList>
+      )}
     </Container>
   );
 }
 
-const mapStateToProps = (state: IAppState): IStateToProps => ({
-  posts: state.postsReducer.posts,
-  loading: state.postsReducer.loading,
-  error: state.postsReducer.error,
+const mapStateToProps = ({
+  postsReducer: { posts, loadingStatus },
+}: IAppState): IStateToProps => ({
+  posts,
+  loadingStatus,
 });
 
 const mapDispatchToProps = (

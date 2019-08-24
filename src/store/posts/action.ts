@@ -26,7 +26,7 @@ export const fetchPosts = () => async (dispatch: Dispatch<IPostsActions>) => {
     const response = await rawResponse.json();
     dispatch(fetchPostsSuccess(response));
   } catch (_) {
-    // ignore error
+    // Ignore error Object
     dispatch(fetchPostsFailure());
   }
 };

@@ -3,8 +3,9 @@ import {
   fetchPostsBegin,
   fetchPostsFailure,
   fetchPostsSuccess,
-} from "../post/action";
+} from "../posts/action";
 import reducer from "../rootReducer";
+import { LoadingStatus } from "../../appContansts";
 
 describe("Reducer tests accordingly to each actions given", () => {
   it("returns initial state if no action passed to it", () => {
@@ -12,8 +13,7 @@ describe("Reducer tests accordingly to each actions given", () => {
     expect(reducer(undefined, {})).toEqual({
       postsReducer: {
         posts: [],
-        loading: false,
-        error: false,
+        loadingStatus: LoadingStatus.DONE,
       },
     });
   });
@@ -23,19 +23,18 @@ describe("Reducer tests accordingly to each actions given", () => {
     expect(reducer(undefined, action)).toEqual({
       postsReducer: {
         posts: [],
-        loading: true,
-        error: false,
+        loadingStatus: LoadingStatus.LOADING,
       },
     });
   });
 
   it("ends fetching posts with success", () => {
-    const action = fetchPostsSuccess(samplePosts);
+    const mockedPosts = samplePosts(10);
+    const action = fetchPostsSuccess(mockedPosts);
     expect(reducer(undefined, action)).toEqual({
       postsReducer: {
-        posts: samplePosts,
-        loading: false,
-        error: false,
+        posts: mockedPosts,
+        loadingStatus: LoadingStatus.DONE,
       },
     });
   });
@@ -45,8 +44,7 @@ describe("Reducer tests accordingly to each actions given", () => {
     expect(reducer(undefined, action)).toEqual({
       postsReducer: {
         posts: [],
-        loading: false,
-        error: true,
+        loadingStatus: LoadingStatus.ERROR,
       },
     });
   });
