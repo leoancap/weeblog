@@ -7,7 +7,7 @@ export default () => {
   const isScrolled = useIsScrolled();
   return (
     <NavStyled isScrolled={isScrolled}>
-      <Logo>Wee Bloggy</Logo>
+      <Logo>WeeBlog</Logo>
     </NavStyled>
   );
 };

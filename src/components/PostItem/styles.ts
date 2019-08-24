@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
+  padding: 0.7em;
   overflow: hidden;
   border-radius: 3px;
   border-radius: 0.7em;
@@ -17,7 +17,6 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h4`
-  padding: 0.3em 0;
   cursor: pointer;
 `;
 
@@ -39,17 +38,18 @@ export const DatePostedAgo = styled.span`
 export const BriefDescription = styled.p`
   margin-top: 1em;
   padding: 0.3em 0;
+  white-space: pre-wrap;
 `;
 
 export const ReadMore = styled(Link)`
   color: rgb(87, 62, 222);
   transition: all 0.3s ease-in-out 0s;
   text-decoration: none;
-  margin-bottom: 1em;
+  margin-top: auto;
+  margin-bottom: 0.5em;
 `;
 
 export const Categories = styled.div`
-  margin-top: auto;
   display: flex;
 `;
 

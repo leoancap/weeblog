@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  max-width: 98%;
+  width: 1000px;
   grid-auto-rows: 1fr;
   grid-gap: 2em;
   @media screen and (max-width: 1024px) {
