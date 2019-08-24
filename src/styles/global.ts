@@ -14,6 +14,7 @@ export default createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
+    font-size: 112.5%;
   }
   body {
     box-sizing: border-box;
