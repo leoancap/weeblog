@@ -3,6 +3,7 @@ import { Dispatch } from "redux";
 import { IPost } from "../../types/appTypes";
 import PostActionTypes from "./actionCreator";
 import { IPostsActions } from "./types";
+import { apiUrl } from "../../appContansts";
 
 export const fetchPostsBegin = (): IPostsActions => ({
   type: PostActionTypes.FETCH_POSTS_BEGIN,
@@ -20,9 +21,7 @@ export const fetchPostsFailure = (): IPostsActions => ({
 export const fetchPosts = () => async (dispatch: Dispatch<IPostsActions>) => {
   dispatch(fetchPostsBegin());
   try {
-    const rawResponse = await fetch(
-      "https://jsonplaceholder.typicode.com/posts",
-    );
+    const rawResponse = await fetch(apiUrl);
     const response = await rawResponse.json();
     dispatch(fetchPostsSuccess(response));
   } catch (_) {

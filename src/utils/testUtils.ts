@@ -16,5 +16,5 @@ const makeEmptyArray = (length: number) => new Array(length).fill(null);
  *
  * @param {number} [length]
  */
-export const samplePosts = (length: number) =>
+export const createMockedPosts = (length: number) =>
   makeEmptyArray(length).map((_, i) => createSamplePost(i));

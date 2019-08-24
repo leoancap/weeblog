@@ -1,4 +1,4 @@
-import { samplePosts } from "../../utils/testUtils";
+import { createMockedPosts } from "../../utils/testUtils";
 import {
   fetchPostsBegin,
   fetchPostsFailure,
@@ -29,7 +29,7 @@ describe("Reducer tests accordingly to each actions given", () => {
   });
 
   it("ends fetching posts with success", () => {
-    const mockedPosts = samplePosts(10);
+    const mockedPosts = createMockedPosts(10);
     const action = fetchPostsSuccess(mockedPosts);
     expect(reducer(undefined, action)).toEqual({
       postsReducer: {
