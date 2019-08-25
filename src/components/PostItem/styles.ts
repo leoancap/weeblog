@@ -38,9 +38,10 @@ export const DatePostedAgo = styled.span`
 `;
 
 export const BriefDescription = styled.p`
-  margin-top: 1em;
+  margin: 1em 0;
   padding: 0.3em 0;
-  white-space: pre-wrap;
+  text-overflow: "...";
+  overflow: hidden;
 `;
 
 export const ReadMore = styled(Link)`

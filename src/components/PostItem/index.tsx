@@ -11,24 +11,28 @@ import { IPost } from '../../types/appTypes';
 import {
   BriefDescription,
   Categories,
-  Category, Container,
+  Category,
+  Container,
   DatePosted,
   DatePostedAgo,
   DateWrapper,
   ReadMore,
-  Title,
   RemoveIconStyled,
+  Title,
 } from './styles';
 
 interface IDispatchToProps {
-  removePostDispatch: (postID:string) => void
+  removePostDispatch: (postID: string) => void;
 }
 
-type IProps = IDispatchToProps & IPost
+type IProps = IDispatchToProps & IPost;
 
 const PostItem = ({
   id,
-  categories, datePosted, title, content,
+  categories,
+  datePosted,
+  title,
+  content,
   removePostDispatch,
 }: IProps) => (
   <Container>
@@ -39,9 +43,7 @@ const PostItem = ({
     />
     <DateWrapper>
       <DatePosted>{moment(datePosted).format('MMM DD')}</DatePosted>
-      <DatePostedAgo>
-        {`( ${moment(datePosted).fromNow()} )`}
-      </DatePostedAgo>
+      <DatePostedAgo>{`( ${moment(datePosted).fromNow()} )`}</DatePostedAgo>
     </DateWrapper>
     <BriefDescription>
       {`${content}...`}
@@ -49,9 +51,7 @@ const PostItem = ({
     <ReadMore to="#">{'Read ->'}</ReadMore>
     <Categories>
       {categories.map((category, index) => (
-        <Category key={category + index.valueOf()}>
-          {`#${category}`}
-        </Category>
+        <Category key={category + index.valueOf()}>{`#${category}`}</Category>
       ))}
     </Categories>
   </Container>
@@ -60,7 +60,7 @@ const PostItem = ({
 const mapDispatchToProps = (
   dispatch: Dispatch<IAppActions>,
 ): IDispatchToProps => ({
-  removePostDispatch: (postId:string) => dispatch(removePost(postId)),
+  removePostDispatch: (postId: string) => dispatch(removePost(postId)),
 });
 
 export default connect(
