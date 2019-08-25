@@ -1,14 +1,19 @@
 import { createMockedPosts } from '../../utils/testUtils';
+
+import postsReducer from '../../store/posts/reducer';
+
 import {
   fetchPostsBegin,
   fetchPostsFailure,
   fetchPostsSuccess,
   removePost,
   addPost,
-} from '../../store/posts/action';
-import postsReducer from '../../store/posts/reducer';
-import { LoadingStatus } from '../../constants';
-import { IPost } from '../../types/appTypes';
+} from '#actions';
+
+import { LoadingStatus } from '#constants';
+
+import { IPost } from '#domainTypes';
+
 
 it('returns initial state if no action passed to it', () => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore

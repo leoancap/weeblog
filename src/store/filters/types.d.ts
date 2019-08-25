@@ -1,5 +1,6 @@
-import { AnyAction } from 'redux';
-import FilterActionTypes from './actionTypes';
+import {AnyAction} from "redux"
+
+import FilterActionTypes from "./actionTypes";
 
 interface ISetTextSearch extends AnyAction {
   type: FilterActionTypes.SET_TEXT_SEARCH;

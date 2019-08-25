@@ -22,7 +22,7 @@ export function Button({
           <Label>{label}</Label>
         </LinkButton>
       ) : (
-        <SubmitButton background={background}color={color} type="submit">
+        <SubmitButton background={background} color={color} type="submit">
           {label}
         </SubmitButton>
       )}

@@ -1,5 +1,6 @@
-import { IPost } from '../../types/appTypes';
-import PostsActionTypes from './actionTypes';
+import PostsActionTypes from "./actionTypes";
+
+import { IPost } from "#domainTypes";
 
 interface IFetchPostsBegin {
   type: PostsActionTypes.FETCH_POSTS_BEGIN;

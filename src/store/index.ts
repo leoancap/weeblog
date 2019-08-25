@@ -1,10 +1,9 @@
-// Global
 import { applyMiddleware, createStore } from 'redux';
 import thunk, { ThunkMiddleware } from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-// Local
+
 import rootReducer from './rootReducer';
-import { IAppActions, IAppState } from './types';
+import { IAppState, IAppActions } from '#storeTypes';
 
 export const store = createStore(
   rootReducer,
