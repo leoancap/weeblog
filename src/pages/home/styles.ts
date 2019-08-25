@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
@@ -8,3 +8,8 @@ export const Container = styled.div`
   max-width: 98%;
   width: 60em;
 `;
+
+export const LeftPanel = styled.div`
+  display: grid;
+  align-content: flex-start;
+`

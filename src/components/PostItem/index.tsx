@@ -1,22 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import React from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
 
-import { removePost } from '#actions';
-import { CategoriesListing, DatePosted } from '#components';
-import { IPost } from '#domainTypes';
-import { IAppActions } from '#storeTypes';
-import RemoveIconSVG from './delete.svg';
-import {
-  BriefDescription, Container, ReadMore, RemoveIconStyled, Title,
-} from './styles';
+import { removePost } from "#actions";
 
+import { CategoriesListing, DatePosted } from "#components";
+
+import { IPost } from "#domainTypes";
+
+import { IAppActions } from "#storeTypes";
+
+import RemoveIconSVG from "./delete.svg";
+
+import { BriefDescription, Container, RemoveIconStyled, Title } from "./styles";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
 interface IDispatchToProps {
   removePostDispatch: (postID: string) => void;
 }
 
-type IProps = IDispatchToProps & IPost;
+type IProps = IDispatchToProps & IPost & RouteComponentProps;
 
 const PostItemComponent = ({
   categories,
@@ -25,16 +28,19 @@ const PostItemComponent = ({
   id,
   removePostDispatch,
   title,
+  history,
 }: IProps) => (
-  <Container>
-    <Title to={`/post/${id}`}>{title}</Title>
+  <Container onClick={() => history.push(`/post/${id}`)}>
+    <Title>{title}</Title>
     <RemoveIconStyled
-      onClick={() => removePostDispatch(id)}
+      onClick={e => {
+        e.stopPropagation();
+        removePostDispatch(id);
+      }}
       src={RemoveIconSVG}
     />
     <DatePosted datePosted={datePosted} />
     <BriefDescription>{`${content}...`}</BriefDescription>
-    <ReadMore to={`/post/${id}`}>{'Read ->'}</ReadMore>
     <CategoriesListing categories={categories} />
   </Container>
 );
@@ -48,5 +54,5 @@ const mapDispatchToProps = (
 export const PostItem = connect(
   null,
   mapDispatchToProps,
-)(PostItemComponent);
+)(withRouter(PostItemComponent));
 export default PostItem;

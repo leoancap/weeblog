@@ -30,10 +30,7 @@ function CategoryFilterComponent({
 }: IProps) {
   return (
     <Container>
-      <Button
-        to="/add-post"
-        label="Add Post"
-      />
+      
       <CategoryHeading>Categories</CategoryHeading>
       <CategoriesListing>
         <CategoryStyled
