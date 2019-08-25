@@ -1,19 +1,15 @@
-// Global
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-// Local
-import { toggleCategory, resetCategories } from '../../store/filters/action';
-import { IAppActions, IAppState } from '../../store/types';
+
+import { resetCategories, toggleCategory } from '#actions';
+import { getCategoriesFromPosts } from '#selectors';
+import { IAppActions, IAppState } from '#storeTypes';
 import {
-  getCategoriesFromPosts,
-} from '../../selectors/getCategoriesFromPosts';
-import {
-  CategoriesListing,
-  CategoryHeading,
-  CategoryStyled,
-  Container,
+  CategoriesListing, CategoryHeading, CategoryStyled, Container,
 } from './styles';
+import { Button } from '#components';
+
 
 interface IStateToProps {
   possibleCategories: string[];
@@ -26,7 +22,7 @@ interface IDispatchToProps {
 
 type IProps = IStateToProps & IDispatchToProps;
 
-function CategoryFilter({
+function CategoryFilterComponent({
   toggleCategoryDispatch,
   resetCategoriesDispatch,
   possibleCategories,
@@ -34,14 +30,18 @@ function CategoryFilter({
 }: IProps) {
   return (
     <Container>
+      <Button
+        to="/add-post"
+        label="Add Post"
+      />
       <CategoryHeading>Categories</CategoryHeading>
       <CategoriesListing>
-        {/* <CategoryStyled
+        <CategoryStyled
           onClick={() => resetCategoriesDispatch()}
           isSelected={selectedCategories.length === 0}
         >
           All
-        </CategoryStyled> */}
+        </CategoryStyled>
         {possibleCategories.map((category) => (
           <CategoryStyled
             onClick={() => toggleCategoryDispatch(category)}
@@ -71,7 +71,8 @@ const mapDispatchToProps = (
   resetCategoriesDispatch: bindActionCreators(resetCategories, dispatch),
 });
 
-export default connect(
+export const CategoryFilter = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CategoryFilter);
+)(CategoryFilterComponent);
+export default CategoryFilter;

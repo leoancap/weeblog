@@ -1,21 +1,21 @@
-// Global
 import React, { useState, useLayoutEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-// Local
-import DatePosted from '../../components/shared/DatePosted';
-import ErrorMessage from '../../components/shared/ErrorMessage';
-import Loading from '../../components/shared/Loading';
-import api from '../../services/api';
-import { IPost } from '../../types/appTypes';
+
+import {
+  ErrorMessage, Loading, DatePosted, CategoriesListing,
+} from '#components';
+
+import { IPost } from '#domainTypes';
+
+import { api } from '#services';
+
 import { Container, PostTitle, PostContent } from './styles';
-import { fakeContent } from '../../utils/testUtils';
-import CategoriesListing from '../../components/shared/CategoriesListing';
 
 type IProps = RouteComponentProps<{
   postID: string;
 }>;
 
-export default function Post({
+function PostPage({
   match: {
     params: { postID },
   },
@@ -54,12 +54,12 @@ export default function Post({
           />
           <PostContent>
             {post.content}
-            {'----->>>>> below are fake contents '}
-            <br />
-            {fakeContent}
           </PostContent>
         </>
       )}
     </Container>
   );
 }
+
+export const Post = PostPage;
+export default Post;

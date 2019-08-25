@@ -7,4 +7,5 @@ interface ILayout {
   children: JSX.Element;
 }
 
-export default ({ children }: ILayout) => <Container>{children}</Container>;
+export const Layout = ({ children }: ILayout) => <Container>{children}</Container>;
+export default Layout;

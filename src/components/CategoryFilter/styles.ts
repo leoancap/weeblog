@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+`;
 
 export const CategoryHeading = styled.h3`
   border-bottom: 1px solid lightgray;
-  margin-right: 1em;
-  margin-bottom: 0.5em;
+  margin: 1em 1em 0em 0em;
   padding: 0 0.5em 0.2em;
   text-align: center;
 `;

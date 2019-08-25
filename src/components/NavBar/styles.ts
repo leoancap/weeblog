@@ -30,21 +30,21 @@ export const Logo = styled(Link)`
   color: #A78BE9;
   font-size: 1em;
   font-weight: bolder;
-  @media screen and (max-width: 1024px) {
+  /* @media screen and (max-width: 1024px) {
     display:none;
-  }
+  } */
 `;
 
 
 export const SearchBarWrapper = styled.div`
   padding: 0.5em;
   border-radius: 0.2em;
-  margin:0 1em;
+  margin-left: auto;
   display: flex;
   align-items: center;
   height: 50px;
   background: rgba(200,200,200,0.1);
-  width: 12rem;
+  width: 10em;
 `;
 
 interface ISearchBarIcon {
@@ -74,15 +74,4 @@ export const SearchField = styled.input`
   font-size: 18px;
   border:none;
   height: 40px;
-`;
-
-export const AddPost = styled(Link)`
-  white-space:nowrap;
-  text-decoration: none;
-  background: #A68FEA;
-  cursor:pointer;
-  padding: 0.5em;
-  border-radius: 0.3em;
-  color: white;
-  margin-left: auto;
 `;

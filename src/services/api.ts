@@ -1,6 +1,6 @@
-import { apiUrl } from '../appContansts';
+const apiUrl = 'https://my-json-server.typicode.com/leoancap/weeblog';
 
-export default {
+export const api = {
   fetchPosts: async () => {
     const rawResponse = await fetch(`${apiUrl}/posts`);
     const posts = await rawResponse.json();

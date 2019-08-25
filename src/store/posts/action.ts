@@ -1,10 +1,10 @@
-// Global
 import { Dispatch } from 'redux';
-// Local
-import { IPost } from '../../types/appTypes';
+
+import { IPost } from '#domainTypes';
 import PostActionTypes from './actionTypes';
 import IPostsActions from './types';
-import api from '../../services/api';
+import { api } from '#services';
+
 
 export const fetchPostsBegin = (payload?: undefined): IPostsActions => ({
   type: PostActionTypes.FETCH_POSTS_BEGIN,
@@ -34,5 +34,10 @@ export const fetchPosts = () => async (dispatch: Dispatch<IPostsActions>) => {
 
 export const removePost = (payload: string) => ({
   type: PostActionTypes.REMOVE_POST,
+  payload,
+});
+
+export const addPost = (payload: IPost) => ({
+  type: PostActionTypes.ADD_POST,
   payload,
 });

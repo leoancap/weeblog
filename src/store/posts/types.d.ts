@@ -20,10 +20,17 @@ interface IRemovePost {
   payload: string;
 }
 
+interface IAddPost {
+  type: PostsActionTypes.ADD_POST;
+  payload: IPost;
+}
+
 // Action Union for Post Actions
 type IPostsActions =
   | IFetchPostsBegin
   | IFetchPostsSuccess
   | IFetchPostsFailure
-  | IRemovePost;
+  | IRemovePost
+  | IAddPost;
+
 export default IPostsActions;

@@ -3,7 +3,7 @@ import { Circle } from 'react-css-spinners';
 
 import { Container } from './styles';
 
-export default function Loading() {
+export function Loading() {
   return (
     <Container>
       <Circle
@@ -13,3 +13,5 @@ export default function Loading() {
     </Container>
   );
 }
+
+export default Loading;

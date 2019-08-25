@@ -1,19 +1,13 @@
-// Global
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-// Local
-import SearchIconSVG from '../../../assets/search.svg';
-import { useIsScrolled } from '../../../customHooks/useIsScrolled';
-import { setTextSearch } from '../../../store/filters/action';
-import { IAppActions, IAppState } from '../../../store/types';
+
+import { setTextSearch } from '#actions';
+import { useIsScrolled } from '#customHooks';
+import { IAppActions, IAppState } from '#storeTypes';
+import SearchIconSVG from './search.svg';
 import {
-  AddPost,
-  Logo,
-  NavStyled,
-  SearchBarIcon,
-  SearchBarWrapper,
-  SearchField,
+  Logo, NavStyled, SearchBarIcon, SearchBarWrapper, SearchField,
 } from './styles';
 
 interface IDispatchToProps {
@@ -26,7 +20,7 @@ interface IStateToProps {
 
 type IProps = IDispatchToProps & IStateToProps;
 
-function NavBar({ textSearch, setTextSearchDispatch }: IProps) {
+function NavBarComponent({ textSearch, setTextSearchDispatch }: IProps) {
   const isScrolled = useIsScrolled();
   const [inputFocused, setInputFocused] = React.useState<boolean>(false);
   return (
@@ -44,7 +38,6 @@ function NavBar({ textSearch, setTextSearchDispatch }: IProps) {
           onChange={({ target: { value } }) => setTextSearchDispatch(value)}
         />
       </SearchBarWrapper>
-      <AddPost to="#">Add Post</AddPost>
     </NavStyled>
   );
 }
@@ -61,7 +54,8 @@ const mapDispatchToProps = (
   setTextSearchDispatch: (textSearch: string) => dispatch(setTextSearch(textSearch)),
 });
 
-export default connect(
+export const NavBar = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NavBar);
+)(NavBarComponent);
+export default NavBar;
