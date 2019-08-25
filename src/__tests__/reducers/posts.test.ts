@@ -7,7 +7,7 @@ import {
   addPost,
 } from '../../store/posts/action';
 import postsReducer from '../../store/posts/reducer';
-import { LoadingStatus } from '../../appContansts';
+import { LoadingStatus } from '../../constants';
 import { IPost } from '../../types/appTypes';
 
 it('returns initial state if no action passed to it', () => {

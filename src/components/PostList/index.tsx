@@ -1,17 +1,18 @@
-// Global
 import React from 'react';
-// Local
+
 import { Container } from './styles';
-import { IPost } from '../../types/appTypes';
-import PostItem from '../PostItem';
+import { PostItem } from '#components';
+import { IPost } from '#domainTypes';
 
 interface IProps {
   posts: IPost[];
 }
 
-export default ({ posts }: IProps) => (
+export const PostList = ({ posts }: IProps) => (
   <Container>
-    {posts.length === 0 ? (<div>no posts</div>) : (
+    {posts.length === 0 ? (
+      <div>no posts</div>
+    ) : (
       posts.map(({
         id, categories, datePosted, title, content,
       }) => (
@@ -23,6 +24,9 @@ export default ({ posts }: IProps) => (
           key={id}
           title={title}
         />
-      )))}
+      ))
+    )}
   </Container>
 );
+
+export default PostList;

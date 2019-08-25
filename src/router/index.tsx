@@ -1,11 +1,8 @@
-// Global
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Local
-import Post from '../pages/Post';
-import Home from '../pages/Home';
-import NavBar from '../components/shared/NavBar';
-import Layout from '../components/shared/Layout';
+import { Layout, NavBar } from '#components';
+import { Home, Post } from '#pages';
 
 export default () => (
   <BrowserRouter>

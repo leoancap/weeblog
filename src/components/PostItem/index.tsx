@@ -1,21 +1,16 @@
-// Global
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-// Local
-import RemoveIconSVG from '../../assets/delete.svg';
-import { removePost } from '../../store/posts/action';
-import { IAppActions } from '../../store/types';
-import { IPost } from '../../types/appTypes';
-import CategoriesListing from '../shared/CategoriesListing';
-import DatePosted from '../shared/DatePosted';
+
+import { removePost } from '#actions';
+import { CategoriesListing, DatePosted } from '#components';
+import { IPost } from '#domainTypes';
+import { IAppActions } from '#storeTypes';
+import RemoveIconSVG from './delete.svg';
 import {
-  BriefDescription,
-  Container,
-  ReadMore,
-  RemoveIconStyled,
-  Title,
+  BriefDescription, Container, ReadMore, RemoveIconStyled, Title,
 } from './styles';
+
 
 interface IDispatchToProps {
   removePostDispatch: (postID: string) => void;
@@ -23,7 +18,7 @@ interface IDispatchToProps {
 
 type IProps = IDispatchToProps & IPost;
 
-const PostItem = ({
+const PostItemComponent = ({
   categories,
   content,
   datePosted,
@@ -50,7 +45,8 @@ const mapDispatchToProps = (
   removePostDispatch: (postId: string) => dispatch(removePost(postId)),
 });
 
-export default connect(
+export const PostItem = connect(
   null,
   mapDispatchToProps,
-)(PostItem);
+)(PostItemComponent);
+export default PostItem;

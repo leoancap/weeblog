@@ -1,23 +1,25 @@
-// Global
 import React, { useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-// Local
-import PostList from '../../components/PostList';
-import { fetchPosts } from '../../store/posts/action';
-import { IAppActions, IAppState } from '../../store/types';
-import { IPost } from '../../types/appTypes';
-import { LoadingStatus } from '../../appContansts';
-import { Container } from './styles';
-import CategoryFilter from '../../components/CategoryFilter';
+
 import {
-  filterPostsByCategory,
-  filterPostsByText,
-} from '../../selectors/filterPosts';
-import Loading from '../../components/shared/Loading';
-import ErrorMessage from '../../components/shared/ErrorMessage';
-import { removeUnexistingCategories, getCategoriesFromPosts } from '../../selectors/getCategoriesFromPosts';
+  CategoryFilter, ErrorMessage, Loading, PostList,
+} from '#components';
+
+import { fetchPosts } from '#actions';
+
+import {
+  filterPostsByCategory, filterPostsByText, getCategoriesFromPosts, removeUnexistingCategories,
+} from '#selectors';
+
+import { IPost } from '#domainTypes';
+
+import { IAppActions, IAppState } from '#storeTypes';
+
+import { LoadingStatus } from '#constants';
+
+import { Container } from './styles';
 
 interface IDispatchToProps {
   fetchPostsDispatch: () => void;
@@ -29,9 +31,9 @@ interface IStateToProps {
   loading: boolean;
 }
 
-type IProps = IDispatchToProps & IStateToProps;
+type IProps = IDispatchToProps & IStateToProps
 
-function Home({
+function HomePage({
   error, fetchPostsDispatch, filteredPosts, loading,
 }: IProps) {
   useLayoutEffect(() => {
@@ -74,7 +76,8 @@ const mapDispatchToProps = (
   fetchPostsDispatch: bindActionCreators(fetchPosts, dispatch),
 });
 
-export default connect(
+export const Home = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Home);
+)(HomePage);
+export default Home;

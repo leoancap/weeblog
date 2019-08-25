@@ -1,7 +1,7 @@
 // Global
 import { Reducer } from 'redux';
 // Local
-import { LoadingStatus } from '../../appContansts';
+import { LoadingStatus } from '../../constants';
 import { IPost } from '../../types/appTypes';
 import PostsActionTypes from './actionTypes';
 import IPostsActions from './types';

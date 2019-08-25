@@ -1,11 +1,8 @@
 {
+  "exclude": ["./pathAlias.json"],
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,9 +14,20 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "#root": ["."],
+      "#actions": ["store/actions"],
+      "#components": ["components"],
+      "#constants": ["constants"],
+      "#customHooks": ["customHooks"],
+      "#domainTypes": ["types"],
+      "#pages": ["pages"],
+      "#selectors": ["selectors"],
+      "#services": ["services"],
+      "#storeTypes": ["store/types"]
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

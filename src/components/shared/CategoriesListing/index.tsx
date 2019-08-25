@@ -7,7 +7,7 @@ interface IProps {
   centered?:boolean;
 }
 
-export default function CategoriesListing({ categories, centered = false }:IProps) {
+export function CategoriesListing({ categories, centered = false }:IProps) {
   return (
     <Container centered={centered}>
       {categories.map((category, index) => (
@@ -16,3 +16,5 @@ export default function CategoriesListing({ categories, centered = false }:IProp
     </Container>
   );
 }
+
+export default CategoriesListing;

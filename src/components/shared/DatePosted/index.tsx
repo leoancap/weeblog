@@ -1,7 +1,6 @@
-// Global
 import moment from 'moment';
 import React from 'react';
-// Local
+
 import { Container, FullDate, MonthsAgo } from './styles';
 
 interface IProps {
@@ -9,7 +8,7 @@ interface IProps {
   centered?: boolean
 }
 
-export default function Date({ datePosted, centered = false }:IProps) {
+export function DatePosted({ datePosted, centered = false }:IProps) {
   const currentDate = moment(datePosted);
   return (
     <Container centered={centered}>
@@ -18,3 +17,5 @@ export default function Date({ datePosted, centered = false }:IProps) {
     </Container>
   );
 }
+
+export default DatePosted;
