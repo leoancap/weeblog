@@ -26,20 +26,6 @@ export const Title = styled(Link)`
   text-overflow: ellipsis;
 `;
 
-export const DateWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const DatePosted = styled.span`
-  padding-right: 0.3em;
-  color: grey;
-`;
-
-export const DatePostedAgo = styled.span`
-  font-size: 14px;
-  color: gray;
-`;
 
 export const BriefDescription = styled.p`
   margin: 1em 0;
@@ -54,20 +40,6 @@ export const ReadMore = styled(Link)`
   text-decoration: none;
   margin-top: auto;
   margin-bottom: 0.5em;
-`;
-
-export const Categories = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: flex-start;
-`;
-
-export const Category = styled.span`
-  margin-left: 0.5em;
-  cursor: pointer;
-  &:first-of-type {
-    margin-left: 0;
-  }
 `;
 
 export const RemoveIconStyled = styled.img`

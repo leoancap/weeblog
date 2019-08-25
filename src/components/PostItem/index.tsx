@@ -1,5 +1,4 @@
 // Global
-import moment from 'moment';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -8,14 +7,11 @@ import RemoveIconSVG from '../../assets/delete.svg';
 import { removePost } from '../../store/posts/action';
 import { IAppActions } from '../../store/types';
 import { IPost } from '../../types/appTypes';
+import CategoriesListing from '../shared/CategoriesListing';
+import DatePosted from '../shared/DatePosted';
 import {
   BriefDescription,
-  Categories,
-  Category,
   Container,
-  DatePosted,
-  DatePostedAgo,
-  DateWrapper,
   ReadMore,
   RemoveIconStyled,
   Title,
@@ -25,15 +21,15 @@ interface IDispatchToProps {
   removePostDispatch: (postID: string) => void;
 }
 
-type IProps = IDispatchToProps & IPost ;
+type IProps = IDispatchToProps & IPost;
 
 const PostItem = ({
-  id,
   categories,
-  datePosted,
-  title,
   content,
+  datePosted,
+  id,
   removePostDispatch,
+  title,
 }: IProps) => (
   <Container>
     <Title to={`/post/${id}`}>{title}</Title>
@@ -41,17 +37,10 @@ const PostItem = ({
       onClick={() => removePostDispatch(id)}
       src={RemoveIconSVG}
     />
-    <DateWrapper>
-      <DatePosted>{moment(datePosted).format('MMM DD')}</DatePosted>
-      <DatePostedAgo>{`( ${moment(datePosted).fromNow()} )`}</DatePostedAgo>
-    </DateWrapper>
+    <DatePosted datePosted={datePosted} />
     <BriefDescription>{`${content}...`}</BriefDescription>
     <ReadMore to={`/post/${id}`}>{'Read ->'}</ReadMore>
-    <Categories>
-      {categories.map((category, index) => (
-        <Category key={category + index.valueOf()}>{`#${category}`}</Category>
-      ))}
-    </Categories>
+    <CategoriesListing categories={categories} />
   </Container>
 );
 

@@ -19,3 +19,5 @@ const makeEmptyArray = (length: number) => new Array(length).fill(null);
 export const createMockedPosts = (length: number) => makeEmptyArray(length).map(
   (_, i) => createSamplePost(i),
 );
+
+export const fakeContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum placeat, nesciunt ab obcaecati doloremque reiciendis neque aspernatur dicta! Fugiat vitae culpa tempora id quam soluta hic ducimus dicta facere quisquam?';

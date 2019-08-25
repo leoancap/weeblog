@@ -7,7 +7,7 @@ export default {
     return posts;
   },
   fetchPost: async (postID:string) => {
-    const rawResponse = await fetch(`${apiUrl}/post/${postID}`);
+    const rawResponse = await fetch(`${apiUrl}/posts/${postID}`);
     const post = await rawResponse.json();
     return post;
   },

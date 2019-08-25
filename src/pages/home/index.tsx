@@ -1,5 +1,5 @@
 // Global
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -33,7 +33,7 @@ type IProps = IDispatchToProps & IStateToProps;
 function Home({
   error, fetchPostsDispatch, filteredPosts, loading,
 }: IProps) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchPostsDispatch();
   }, [fetchPostsDispatch]);
 

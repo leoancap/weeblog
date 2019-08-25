@@ -1,7 +1,6 @@
 // Global
 import { Dispatch } from 'redux';
 // Local
-import { apiUrl } from '../../appContansts';
 import { IPost } from '../../types/appTypes';
 import PostActionTypes from './actionTypes';
 import IPostsActions from './types';
