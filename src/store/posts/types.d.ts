@@ -21,5 +21,9 @@ interface IRemovePost {
 }
 
 // Action Union for Post Actions
-type IPostsActions = IFetchPostsBegin | IFetchPostsSuccess | IFetchPostsFailure | IRemovePost;
+type IPostsActions =
+  | IFetchPostsBegin
+  | IFetchPostsSuccess
+  | IFetchPostsFailure
+  | IRemovePost;
 export default IPostsActions;

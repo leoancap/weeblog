@@ -1,7 +1,8 @@
 import filtersReducer from '../../store/filters/reducer';
-import { setTextSearch, toggleCategory } from '../../store/filters/action';
+import { setTextSearch, toggleCategory, resetCategories } from '../../store/filters/action';
 
 it('returns the initial state if no action given', () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
   // @ts-ignore
   const state = filtersReducer(undefined, {});
   expect(state).toEqual({
@@ -30,4 +31,13 @@ it('should remove category filter if already exist', () => {
   };
   const state = filtersReducer(initialState, toggleCategory(payload));
   expect(state.selectedCategories).toEqual(['sampleFilter']);
+});
+
+it('should reset categories array', () => {
+  const initialState = {
+    textSearch: '',
+    selectedCategories: ['ergonomic', 'somethingElse'],
+  };
+  const state = filtersReducer(initialState, resetCategories());
+  expect(state.selectedCategories).toEqual([]);
 });

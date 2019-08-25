@@ -15,8 +15,11 @@ const postsInitialState: IPostsState = {
   loadingStatus: LoadingStatus.DONE,
 };
 
-const postsReducer: IPostsReducer = (state = postsInitialState, action) => {
-  switch (action.type) {
+const postsReducer: IPostsReducer = (
+  state = postsInitialState,
+  { type, payload },
+) => {
+  switch (type) {
     case PostsActionTypes.FETCH_POSTS_BEGIN:
       return {
         ...state,
@@ -26,10 +29,7 @@ const postsReducer: IPostsReducer = (state = postsInitialState, action) => {
       return {
         ...state,
         loadingStatus: LoadingStatus.DONE,
-        posts: [
-          ...action.payload as IPost[],
-          ...state.posts,
-        ],
+        posts: [...(payload as IPost[]), ...state.posts],
       };
     case PostsActionTypes.FETCH_POSTS_FAILURE:
       return {
@@ -39,7 +39,7 @@ const postsReducer: IPostsReducer = (state = postsInitialState, action) => {
     case PostsActionTypes.REMOVE_POST:
       return {
         ...state,
-        posts: state.posts.filter((post) => post.id !== action.payload),
+        posts: state.posts.filter((post) => post.id !== payload),
       };
     default:
       return state;

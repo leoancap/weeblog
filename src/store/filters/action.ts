@@ -12,3 +12,7 @@ export const toggleCategory = (payload: string): IFilterActions => ({
   type: FiltersActionTypes.TOGGLE_CATEGORY,
   payload,
 });
+
+export const resetCategories = (): IFilterActions => ({
+  type: FiltersActionTypes.RESET_CATEGORIES,
+});

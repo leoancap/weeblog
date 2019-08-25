@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: grid;
+  grid-template-rows: 1fr 1fr 7fr 1fr 1fr;
   position: relative;
   padding: 0.7em;
   overflow: hidden;
@@ -40,7 +41,7 @@ export const DatePostedAgo = styled.span`
 export const BriefDescription = styled.p`
   margin: 1em 0;
   padding: 0.3em 0;
-  text-overflow: "...";
+  text-overflow: ellipsis;
   overflow: hidden;
 `;
 

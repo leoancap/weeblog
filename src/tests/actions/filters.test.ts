@@ -1,4 +1,4 @@
-import { setTextSearch, toggleCategory } from '../../store/filters/action';
+import { setTextSearch, toggleCategory, resetCategories } from '../../store/filters/action';
 import filtersActionTypes from '../../store/filters/actionTypes';
 
 it('should set the textSearch field with text value', () => {
@@ -16,5 +16,12 @@ it('should return the action payload with a new category', () => {
   expect(action).toEqual({
     type: filtersActionTypes.TOGGLE_CATEGORY,
     payload: newCategory,
+  });
+});
+
+it('should reset the categories array', () => {
+  const action = resetCategories();
+  expect(action).toEqual({
+    type: filtersActionTypes.RESET_CATEGORIES,
   });
 });

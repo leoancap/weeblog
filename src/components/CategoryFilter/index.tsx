@@ -1,10 +1,9 @@
 // Global
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
+import { bindActionCreators, Dispatch } from 'redux';
 // Local
-import { toggleCategory } from '../../store/filters/action';
+import { toggleCategory, resetCategories } from '../../store/filters/action';
 import { IAppActions, IAppState } from '../../store/types';
 import { getCategoriesFromPosts } from '../../selectors/getCategoriesFromPosts';
 import {
@@ -20,12 +19,14 @@ interface IStateToProps {
 }
 interface IDispatchToProps {
   toggleCategoryDispatch: (payload: string) => void;
+  resetCategoriesDispatch: () => void;
 }
 
 type IProps = IStateToProps & IDispatchToProps;
 
 function CategoryFilter({
   toggleCategoryDispatch,
+  resetCategoriesDispatch,
   possibleCategories,
   selectedCategories,
 }: IProps) {
@@ -33,6 +34,12 @@ function CategoryFilter({
     <Container>
       <CategoryHeading>Categories</CategoryHeading>
       <CategoriesListing>
+        <CategoryStyled
+          onClick={() => resetCategoriesDispatch()}
+          isSelected={selectedCategories.length === 0}
+        >
+        All
+        </CategoryStyled>
         {possibleCategories.map((category) => (
           <CategoryStyled
             onClick={() => toggleCategoryDispatch(category)}
@@ -56,9 +63,10 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (
-  dispatch: ThunkDispatch<{}, {}, IAppActions>,
+  dispatch: Dispatch<IAppActions>,
 ): IDispatchToProps => ({
   toggleCategoryDispatch: bindActionCreators(toggleCategory, dispatch),
+  resetCategoriesDispatch: bindActionCreators(resetCategories, dispatch),
 });
 
 export default connect(
