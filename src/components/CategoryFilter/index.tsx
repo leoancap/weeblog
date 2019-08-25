@@ -36,12 +36,12 @@ function CategoryFilter({
     <Container>
       <CategoryHeading>Categories</CategoryHeading>
       <CategoriesListing>
-        {/* <CategoryStyled
+        <CategoryStyled
           onClick={() => resetCategoriesDispatch()}
           isSelected={selectedCategories.length === 0}
         >
           All
-        </CategoryStyled> */}
+        </CategoryStyled>
         {possibleCategories.map((category) => (
           <CategoryStyled
             onClick={() => toggleCategoryDispatch(category)}

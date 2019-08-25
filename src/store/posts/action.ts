@@ -36,3 +36,8 @@ export const removePost = (payload: string) => ({
   type: PostActionTypes.REMOVE_POST,
   payload,
 });
+
+export const addPost = (payload: IPost) => ({
+  type: PostActionTypes.ADD_POST,
+  payload,
+});

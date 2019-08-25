@@ -29,7 +29,7 @@ const postsReducer: IPostsReducer = (
       return {
         ...state,
         loadingStatus: LoadingStatus.DONE,
-        posts: [...(payload as IPost[]), ...state.posts],
+        posts: (payload as IPost[]),
       };
     case PostsActionTypes.FETCH_POSTS_FAILURE:
       return {
@@ -40,6 +40,11 @@ const postsReducer: IPostsReducer = (
       return {
         ...state,
         posts: state.posts.filter((post) => post.id !== payload),
+      };
+    case PostsActionTypes.ADD_POST:
+      return {
+        ...state,
+        posts: [(payload as IPost), ...state.posts],
       };
     default:
       return state;
