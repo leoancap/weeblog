@@ -13,3 +13,12 @@ export const getCategoriesFromPosts = (posts: IPost[]) => {
   );
   return noDuplicates;
 };
+
+/** Filters out unexisting categories based on the possible categories
+ *
+ * @param {posts} [posts]
+ */
+export const removeUnexistingCategories = (
+  selectedCategories: string[],
+  possibleCategories: string[],
+) => selectedCategories.filter((category) => possibleCategories.includes(category));

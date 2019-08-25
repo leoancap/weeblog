@@ -17,6 +17,7 @@ import {
 } from '../../selectors/filterPosts';
 import Loading from '../../components/shared/Loading';
 import ErrorMessage from '../../components/shared/ErrorMessage';
+import { removeUnexistingCategories, getCategoriesFromPosts } from '../../selectors/getCategoriesFromPosts';
 
 interface IDispatchToProps {
   fetchPostsDispatch: () => void;
@@ -56,7 +57,11 @@ const mapStateToProps = ({
   filtersReducer: { selectedCategories, textSearch },
 }: IAppState): IStateToProps => ({
   filteredPosts: filterPostsByText(
-    filterPostsByCategory(posts, selectedCategories),
+    filterPostsByCategory(posts,
+      removeUnexistingCategories(
+        selectedCategories,
+        getCategoriesFromPosts(posts),
+      )),
     textSearch,
   ),
   loading: loadingStatus === LoadingStatus.LOADING,

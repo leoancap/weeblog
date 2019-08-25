@@ -5,7 +5,9 @@ import { bindActionCreators, Dispatch } from 'redux';
 // Local
 import { toggleCategory, resetCategories } from '../../store/filters/action';
 import { IAppActions, IAppState } from '../../store/types';
-import { getCategoriesFromPosts } from '../../selectors/getCategoriesFromPosts';
+import {
+  getCategoriesFromPosts,
+} from '../../selectors/getCategoriesFromPosts';
 import {
   CategoriesListing,
   CategoryHeading,
@@ -34,12 +36,12 @@ function CategoryFilter({
     <Container>
       <CategoryHeading>Categories</CategoryHeading>
       <CategoriesListing>
-        <CategoryStyled
+        {/* <CategoryStyled
           onClick={() => resetCategoriesDispatch()}
           isSelected={selectedCategories.length === 0}
         >
-        All
-        </CategoryStyled>
+          All
+        </CategoryStyled> */}
         {possibleCategories.map((category) => (
           <CategoryStyled
             onClick={() => toggleCategoryDispatch(category)}
