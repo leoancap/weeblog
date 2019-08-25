@@ -3,10 +3,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 // Local
-import SearchIconSVG from '../../assets/search.svg';
-import { useIsScrolled } from '../../customHooks/useIsScrolled';
-import { setTextSearch } from '../../store/filters/action';
-import { IAppActions, IAppState } from '../../store/types';
+import SearchIconSVG from '../../../assets/search.svg';
+import { useIsScrolled } from '../../../customHooks/useIsScrolled';
+import { setTextSearch } from '../../../store/filters/action';
+import { IAppActions, IAppState } from '../../../store/types';
 import {
   AddPost,
   Logo,
@@ -31,7 +31,7 @@ function NavBar({ textSearch, setTextSearchDispatch }: IProps) {
   const [inputFocused, setInputFocused] = React.useState<boolean>(false);
   return (
     <NavStyled isScrolled={isScrolled}>
-      <Logo>WeeBlog</Logo>
+      <Logo to="/">WeeBlog</Logo>
       <SearchBarWrapper>
         <SearchBarIcon
           hide={textSearch.length > 0 || inputFocused}

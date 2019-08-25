@@ -5,6 +5,7 @@ import { apiUrl } from '../../appContansts';
 import { IPost } from '../../types/appTypes';
 import PostActionTypes from './actionTypes';
 import IPostsActions from './types';
+import api from '../../services/api';
 
 export const fetchPostsBegin = (payload?: undefined): IPostsActions => ({
   type: PostActionTypes.FETCH_POSTS_BEGIN,
@@ -24,9 +25,8 @@ export const fetchPostsFailure = (payload?: undefined): IPostsActions => ({
 export const fetchPosts = () => async (dispatch: Dispatch<IPostsActions>) => {
   dispatch(fetchPostsBegin());
   try {
-    const rawResponse = await fetch(`${apiUrl}/posts`);
-    const response = await rawResponse.json();
-    dispatch(fetchPostsSuccess(response));
+    const posts = await api.fetchPosts();
+    dispatch(fetchPostsSuccess(posts));
   } catch (_) {
     // Ignore error Object
     dispatch(fetchPostsFailure());

@@ -25,7 +25,9 @@ export const NavStyled = styled.header<IIsScrolled>`
     `};
 `;
 
-export const Logo = styled.span`
+export const Logo = styled(Link)`
+  text-decoration:none;
+  color: #A78BE9;
   font-size: 1em;
   font-weight: bolder;
   @media screen and (max-width: 1024px) {

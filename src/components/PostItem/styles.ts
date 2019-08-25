@@ -17,7 +17,10 @@ export const Container = styled.div`
   }
 `;
 
-export const Title = styled.h4`
+export const Title = styled(Link)`
+  text-decoration:none;
+  color: black;
+  font-weight: bolder;
   cursor: pointer;
   width: 70%;
   text-overflow: ellipsis;

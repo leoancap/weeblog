@@ -9,9 +9,14 @@ import { fetchPosts } from '../../store/posts/action';
 import { IAppActions, IAppState } from '../../store/types';
 import { IPost } from '../../types/appTypes';
 import { LoadingStatus } from '../../appContansts';
-import { Container, ErrorMessage } from './styles';
+import { Container } from './styles';
 import CategoryFilter from '../../components/CategoryFilter';
-import { filterPostsByCategory, filterPostsByText } from '../../selectors/filterPosts';
+import {
+  filterPostsByCategory,
+  filterPostsByText,
+} from '../../selectors/filterPosts';
+import Loading from '../../components/shared/Loading';
+import ErrorMessage from '../../components/shared/ErrorMessage';
 
 interface IDispatchToProps {
   fetchPostsDispatch: () => void;
@@ -19,44 +24,29 @@ interface IDispatchToProps {
 
 interface IStateToProps {
   filteredPosts: IPost[];
-  loadingStatus: LoadingStatus;
+  error: boolean;
+  loading: boolean;
 }
 
 type IProps = IDispatchToProps & IStateToProps;
 
 function Home({
-  fetchPostsDispatch,
-  filteredPosts,
-  loadingStatus,
+  error, fetchPostsDispatch, filteredPosts, loading,
 }: IProps) {
   useEffect(() => {
     fetchPostsDispatch();
   }, [fetchPostsDispatch]);
 
-  if (loadingStatus === LoadingStatus.ERROR) {
-    return (
-      <Container>
-        <ErrorMessage>
-          There was an error.
-          <br />
-          <br />
-          Try again!
-        </ErrorMessage>
-      </Container>
-    );
+  if (error) {
+    return <ErrorMessage />;
   }
-  return (
+
+  return loading ? (
+    <Loading />
+  ) : (
     <Container>
-      {loadingStatus === LoadingStatus.LOADING ? (
-        <div>loading</div>
-      ) : (
-        <>
-          <CategoryFilter />
-          <PostList
-            posts={filteredPosts}
-          />
-        </>
-      )}
+      <CategoryFilter />
+      <PostList posts={filteredPosts} />
     </Container>
   );
 }
@@ -69,7 +59,8 @@ const mapStateToProps = ({
     filterPostsByCategory(posts, selectedCategories),
     textSearch,
   ),
-  loadingStatus,
+  loading: loadingStatus === LoadingStatus.LOADING,
+  error: loadingStatus === LoadingStatus.ERROR,
 });
 
 const mapDispatchToProps = (

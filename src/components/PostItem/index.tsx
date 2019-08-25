@@ -25,7 +25,7 @@ interface IDispatchToProps {
   removePostDispatch: (postID: string) => void;
 }
 
-type IProps = IDispatchToProps & IPost;
+type IProps = IDispatchToProps & IPost ;
 
 const PostItem = ({
   id,
@@ -36,7 +36,7 @@ const PostItem = ({
   removePostDispatch,
 }: IProps) => (
   <Container>
-    <Title>{title}</Title>
+    <Title to={`/post/${id}`}>{title}</Title>
     <RemoveIconStyled
       onClick={() => removePostDispatch(id)}
       src={RemoveIconSVG}
@@ -45,10 +45,8 @@ const PostItem = ({
       <DatePosted>{moment(datePosted).format('MMM DD')}</DatePosted>
       <DatePostedAgo>{`( ${moment(datePosted).fromNow()} )`}</DatePostedAgo>
     </DateWrapper>
-    <BriefDescription>
-      {`${content}...`}
-    </BriefDescription>
-    <ReadMore to="#">{'Read ->'}</ReadMore>
+    <BriefDescription>{`${content}...`}</BriefDescription>
+    <ReadMore to={`/post/${id}`}>{'Read ->'}</ReadMore>
     <Categories>
       {categories.map((category, index) => (
         <Category key={category + index.valueOf()}>{`#${category}`}</Category>
