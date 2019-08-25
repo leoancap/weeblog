@@ -1,16 +1,21 @@
 // Global
 import {
-  Field, FieldProps, Form, Formik, FormikActions, FormikProps,
-} from 'formik';
-import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
+  Field,
+  FieldProps,
+  Form,
+  Formik,
+  FormikActions,
+  FormikProps,
+} from "formik";
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators, Dispatch } from "redux";
 // Local
-import { addPost } from '../../store/actions';
-import { IAppActions } from '../../store/types';
-import { IPost } from '../../types/appTypes';
-import { Container } from './styles';
-
+import { addPost } from "../../store/actions";
+import { IAppActions } from "../../store/types";
+import { IPost } from "../../types/appTypes";
+import { Container } from "./styles";
+import { InputField, Button } from "#components";
 
 interface IDispatchToProps {
   addPostDispatch: (post: IPost) => void;
@@ -19,35 +24,27 @@ interface IDispatchToProps {
 type IProps = IDispatchToProps;
 
 interface IFormValues {
-  firstName: string;
+  title: string;
+  content: string;
 }
 
 function AddPostPage({ addPostDispatch }: IProps) {
   return (
     <Container>
       <Formik
-        initialValues={{ firstName: '' }}
+        initialValues={{ title: "", content: "" }}
         onSubmit={(
           values: IFormValues,
           actions: FormikActions<IFormValues>,
         ) => {
           console.log({ values, actions });
-          alert(JSON.stringify(values, null, 2));
           actions.setSubmitting(false);
         }}
-        render={(formikBag: FormikProps<IFormValues>) => (
+        render={() => (
           <Form>
-            <Field
-              name="firstName"
-              render={({ field, form }: FieldProps<IFormValues>) => (
-                <div>
-                  <input type="text" {...field} placeholder="First Name" />
-                  {form.touched.firstName
-                    && form.errors.firstName
-                    && form.errors.firstName}
-                </div>
-              )}
-            />
+            <InputField label="title" />
+            <InputField label="content" textArea />
+            <Button label="submit" />
           </Form>
         )}
       />

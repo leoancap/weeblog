@@ -1,5 +1,6 @@
 import filtersReducer from '../../store/filters/reducer';
-import { setTextSearch, toggleCategory, resetCategories } from '../../store/filters/action';
+
+import { setTextSearch, toggleCategory, resetCategories } from '#actions';
 
 it('returns the initial state if no action given', () => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore

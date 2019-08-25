@@ -1,6 +1,5 @@
-// Global
 import { Reducer } from 'redux';
-// Local
+
 import FiltersActionTypes from './actionTypes';
 import IFilterActions from './types';
 

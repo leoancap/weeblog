@@ -1,6 +1,9 @@
-import { fetchPosts, removePost, addPost } from '../../store/posts/action';
 import PostsActionTypes from '../../store/posts/actionTypes';
-import { IPost } from '../../types/appTypes';
+
+import { fetchPosts, removePost, addPost } from '#actions';
+
+import { IPost } from '#domainTypes';
+
 
 it('makes sure the dispatch function is called', async () => {
   const dispatch = jest.fn();

@@ -1,6 +1,4 @@
-// Global
 import FiltersActionTypes from './actionTypes';
-// Local
 import IFilterActions from './types';
 
 export const setTextSearch = (payload: string): IFilterActions => ({

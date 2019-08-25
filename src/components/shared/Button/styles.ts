@@ -1,19 +1,43 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
-export const Container = styled(Link)`
-  white-space: nowrap;
-  text-decoration: none;
-  background: #a68fea;
+import { IColor } from "#styledTypes";
+
+const customCSSColor = css<IColor>`
+  ${({ background,color }) => `
+    background: ${background}
+    color: ${color}
+  `}
+`;
+
+export const Container = styled.div`
   cursor: pointer;
-  padding: 0.5em;
-  max-height: 2.5em;
-  margin: 0 auto;
-  border-radius: 0.3em;
-  color: white;
   display: grid;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+`;
+
+export const LinkButton = styled(Link)<IColor>`
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.5em;
+  max-height: 2.5em;
+  border-radius: 0.3em;
+  color: white;
+  ${customCSSColor}
 `;
 
 export const Label = styled.span``;
+
+export const SubmitButton = styled.button<IColor>`
+  width: 10em;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 0.5em;
+  margin: 0.5em;
+  margin-top: 2em;
+  border-radius: 0.3em;
+  max-width: 95%;
+  ${customCSSColor}
+`;

@@ -1,5 +1,7 @@
-import { setTextSearch, toggleCategory, resetCategories } from '../../store/filters/action';
 import filtersActionTypes from '../../store/filters/actionTypes';
+
+import { setTextSearch, toggleCategory, resetCategories } from '#actions';
+
 
 it('should set the textSearch field with text value', () => {
   const text = 'test tring';

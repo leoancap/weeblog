@@ -2,7 +2,7 @@ import React, { useState, useLayoutEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import {
-  ErrorMessage, Loading, DatePosted, CategoriesListing,
+  TryAgainMessage, Loading, DatePosted, CategoriesListing,
 } from '#components';
 
 import { IPost } from '#domainTypes';
@@ -34,7 +34,7 @@ function PostPage({
   }, [postID]);
 
   if (error) {
-    return <ErrorMessage />;
+    return <TryAgainMessage />;
   }
 
   return (

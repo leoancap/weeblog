@@ -1,4 +1,4 @@
-import { IPost } from '../types/appTypes';
+import { IPost } from '#domainTypes';
 
 /** Returns an array containing all the possible
  * categories with no duplicates given an array of posts.

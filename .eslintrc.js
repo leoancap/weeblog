@@ -32,6 +32,7 @@ module.exports = {
     "import/named": "off",
     "import/no-unresolved": "off",
     "import/no-cycle": "off",
+    "react/jsx-props-no-spreading": "off"
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/interface-name-prefix":"off",

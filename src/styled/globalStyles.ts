@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 // minimum reset styles and font setting
-export default createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   * {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;

@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
-  CategoryFilter, ErrorMessage, Loading, PostList,
+  CategoryFilter, TryAgainMessage, Loading, PostList,
 } from '#components';
 
 import { fetchPosts } from '#actions';
@@ -41,7 +41,7 @@ function HomePage({
   }, [fetchPostsDispatch]);
 
   if (error) {
-    return <ErrorMessage />;
+    return <TryAgainMessage />;
   }
 
   return loading ? (
