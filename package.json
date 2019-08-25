@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "parcel public/index.html --port 3000",
-    "build": "parcel build public/index.html --no-source-maps",
+    "start": "parcel src/index.html --port 3000",
+    "build": "parcel build src/index.html -d public --no-source-maps",
     "test": "react-scripts test",
     "test:coverage": "npm run test -- --watchAll false --coverage"
   },
@@ -16,9 +16,13 @@
     "#customHooks": "./src/customHooks",
     "#domainTypes": "./src/types",
     "#pages": "./src/pages",
+    "#router": "./src/router",
     "#selectors": "./src/selectors",
     "#services": "./src/services",
-    "#storeTypes": "./src/store/types"
+    "#store": "./src/store",
+    "#storeTypes": "./src/store/types",
+    "#styled": "./src/styled",
+    "#styledTypes": "./src/types/styledTypes"
   },
   "dependencies": {
     "formik": "^1.5.8",

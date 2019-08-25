@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { ICentered } from '../../../styled/styles';
+
+import { ICentered } from '#styledTypes';
 
 export const Container = styled.div<ICentered>`
   display: grid;

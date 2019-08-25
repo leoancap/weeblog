@@ -6,7 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './rootReducer';
 import { IAppActions, IAppState } from './types';
 
-export default createStore(
+export const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk as ThunkMiddleware<IAppState, IAppActions>)),
 );

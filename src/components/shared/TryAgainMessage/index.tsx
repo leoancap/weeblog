@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, ErrorMessageStyled } from './styles';
 
-export function ErrorMessage() {
+export function TryAgainMessage() {
   return (
     <Container>
       <ErrorMessageStyled>
@@ -15,4 +15,4 @@ export function ErrorMessage() {
   );
 }
 
-export default ErrorMessage;
+export default TryAgainMessage;

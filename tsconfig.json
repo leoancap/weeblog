@@ -1,5 +1,5 @@
 {
-  "exclude": ["./pathAlias.json"],
+  "extends": "./pathAliases.json",
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -16,18 +16,6 @@
     "noEmit": true,
     "jsx": "react",
     "baseUrl": "./src",
-    "paths": {
-      "#root": ["."],
-      "#actions": ["store/actions"],
-      "#components": ["components"],
-      "#constants": ["constants"],
-      "#customHooks": ["customHooks"],
-      "#domainTypes": ["types"],
-      "#pages": ["pages"],
-      "#selectors": ["selectors"],
-      "#services": ["services"],
-      "#storeTypes": ["store/types"]
-    }
   },
   "include": ["src"]
 }

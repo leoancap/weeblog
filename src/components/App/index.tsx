@@ -1,14 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import Router from '../../router';
-import store from '../../store';
-import Global from '../../styled/global';
+import { AppRouter } from '#router';
+import { store } from '#store';
+import { GlobalStyles } from '#styled';
 
 export const App: React.FC = () => (
   <Provider store={store}>
-    <Global />
-    <Router />
+    <GlobalStyles />
+    <AppRouter />
   </Provider>
 );
 
