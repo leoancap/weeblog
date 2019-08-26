@@ -55,13 +55,13 @@ yarn test
 
 ## Development Steps
 
-1. Add app specific types(Post items)
-2. Create action types(FETCH_POSTS,SET_POSTS)
-3. Create app state types(data in reducers)
+1. Add app specific types( Post items )
+2. Create action types( FETCH_POSTS,SET_POSTS )
+3. Create app state types( data in reducers )
 4. Hook up types to actions
 5. Hook up types to reducers
 6. Hook up types to store
-7. Hook up types to middleware(Thunk)
+7. Hook up types to middleware( Thunk )
 8. Hook up types to components
 
 ## Folder structure
