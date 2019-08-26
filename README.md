@@ -10,19 +10,19 @@ Instal Node by downloading it from https://nodejs.org/en/download/current.
 
 Install the Yarn CLI from https://yarnpkg.com/lang/en/docs/install.
 
-1. Clone project
+1. Clone project. 
 
 ```
 git clone https://github.com/leoancap/weeblog
 ```
 
-2. cd into folder
+2. cd into folder. 
 
 ```
 cd weeblog
 ```
 
-3. Download and install dependencies
+3. Download and install dependencies. 
 
 ```
 yarn
@@ -55,14 +55,14 @@ yarn test
 
 ## Development Steps
 
-1. Add app specific types( Post items )
-2. Create action types( FETCH_POSTS,SET_POSTS )
-3. Create app state types( data in reducers )
-4. Hook up types to actions
-5. Hook up types to reducers
-6. Hook up types to store
-7. Hook up types to middleware( Thunk )
-8. Hook up types to components
+1. Add app specific types ( Post items ). 
+2. Create action types ( FETCH_POSTS,SET_POSTS ). 
+3. Create app state types ( data in reducers ). 
+4. Hook up types to actions. 
+5. Hook up types to reducers. 
+6. Hook up types to store. 
+7. Hook up types to middleware ( Thunk ). 
+8. Hook up types to components. 
 
 ## Folder structure
 
@@ -85,8 +85,8 @@ src/
 
 ## Linting and formatting
 
-- The eslint-config-airbnb as the main linter
-- The eslint-config-prettier for formatting. (make sure you have the plugin also installed in vscode)
+- The eslint-config-airbnb as the main liner. 
+- The eslint-config-prettier for formatting (make sure you have the plugin also installed in vscode). 
 
 ## State management
 
@@ -100,7 +100,7 @@ src/
 ## Static types
 
 - It uses typescript with some strict rules. No implicity and explicity any.
-- Typescript will save you mental energy in the long run
+- Typescript will save you mental energy in the long run.
 
 ## Modularization
 
@@ -111,7 +111,7 @@ src/
 
 ## Bundling and building
 
-- Parcel-bundler is used both for development mode and building for production with zero configuration
+- Parcel-bundler is used both for development mode and building for production with zero configuration.
 
 ## Deployment
 
