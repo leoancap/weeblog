@@ -22,20 +22,22 @@ function PostPage({
   match: {
     params: { postID },
   },
+  location: { state },
 }: IProps) {
-
   const [post, setPost] = useState<IPost | null>(null);
 
   const [error, setError] = useState<boolean>(false);
 
   useLayoutEffect(() => {
-    (async () => {
-      try {
-        setPost(await api.fetchPost(postID));
-      } catch (_) {
-        setError(true);
-      }
-    })();
+    // Check to use submitted posts
+    if (state && state.post && state.post.id.includes("local")) {
+      setPost(state.post);
+      return;
+    }
+    api
+      .fetchPost(postID)
+      .then(setPost)
+      .catch(_ => setError(true));
   }, [postID]);
 
   if (error) {

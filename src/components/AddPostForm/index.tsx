@@ -58,6 +58,7 @@ function AddPost({ addPostDispatch, onAfterSubmit }: IProps) {
             <InputField label="title" />
             <InputField label="content" textArea />
             <InputTag onAddTag={setTags} tags={tags}></InputTag>
+            <span>OBS: Note that this post won't be persisted after a refresh</span>
             <Button label="submit" />
           </Form>
         )}

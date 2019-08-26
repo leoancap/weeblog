@@ -30,7 +30,13 @@ const PostItemComponent = ({
   title,
   history,
 }: IProps) => (
-  <Container onClick={() => history.push(`/post/${id}`)}>
+  <Container
+    onClick={() =>
+      history.push(`/post/${id}`, {
+        post: { id, title, content, datePosted, categories },
+      })
+    }
+  >
     <Title>{title}</Title>
     <RemoveIconStyled
       onClick={e => {
