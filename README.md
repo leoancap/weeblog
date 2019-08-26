@@ -104,7 +104,9 @@ src/
 
 ## Modularization
 
-- It uses the package.json alias property to turn every folder in a modular in itself. With such practice, you get a cleaner code across your files. To import a component you just write. 
+- It uses the package.json alias property to turn every folder in a modular in itself.
+- With such practice, you get a cleaner code across your files. To import a component you just write. 
+
 ```import { Button, InputField } from "#components";```
 
 ## Bundling and building
