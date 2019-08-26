@@ -1,6 +1,6 @@
 # Weeblog  
 
-### demo 
+## demo 
 
 https://bloggy.leoancap.now.sh
 
@@ -63,6 +63,25 @@ yarn test
 6. Hook up types to store
 7. Hook up types to middleware(Thunk)
 8. Hook up types to components
+
+## Folder structure
+
+```
+src/
+├── __tests__   =>  tests suites for actions and reducers
+├── components  =>  this holds all of the components expect for pages and router
+├── constants   =>  contant values to be used across the application
+├── customHooks =>  some customHooks to be reused if needed
+├── pages       =>  the routes that represent a page
+├── router      =>  the router component for designating logic between pages
+├── selectors   =>  helper functions for managing logic control
+├── services    =>  interaction with apis or backends
+├── store       =>  configuration of the redux store following the ducks pattern
+├── styled      =>  styling configuration files and style types
+├── types       =>  typing declarations including domain types and module types
+└── utils       =>  helper functions that are common to many components and tests
+```
+
 
 ## Requirements
 
