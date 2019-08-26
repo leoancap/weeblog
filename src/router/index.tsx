@@ -12,7 +12,6 @@ export const AppRouter = () => (
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/post/:postID" component={Post} />
-        <Route path="/add-post" component={AddPost} />
       </Switch>
     </Layout>
   </BrowserRouter>

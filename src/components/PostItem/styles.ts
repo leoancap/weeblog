@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: grid;
@@ -7,7 +6,6 @@ export const Container = styled.div`
   position: relative;
   padding: 0.7em;
   overflow: hidden;
-  border-radius: 3px;
   border-radius: 0.7em;
   border-color: rgba(223, 225, 229, 0);
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
@@ -21,7 +19,9 @@ export const Container = styled.div`
 export const Title = styled.h3`
   text-decoration:none;
   color: #3F364D;
-  width: 70%;
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 `;
 

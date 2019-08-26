@@ -1,15 +1,14 @@
 import React from "react";
 import { Field, FieldProps } from "formik";
 
-import { Container, Input, Label, TextArea } from "./styles";
+import { Container, Input, Label, TextArea, ErrorMessage } from "./styles";
+import { IPost } from "#domainTypes";
 
-interface IFormValues {
-  title: string;
-  content: string;
-}
+
+type IFormValue =  "title" | "content"
 
 interface IProps {
-  label: string;
+  label: IFormValue;
   textArea?: boolean;
 }
 
@@ -17,20 +16,28 @@ export function InputField({ label, textArea = false }: IProps) {
   return (
     <Field
       name={label}
-      render={({ field, form }: FieldProps<IFormValues>) => (
-        <Container>
-          <Label>{label}</Label>
-          {textArea ? (
-            <TextArea
-              {...field}
-              placeholder={`Type your ${label}`}
-            />
-          ) : (
-            <Input type="text" {...field} placeholder={`Type your ${label}`} />
-          )}
-          {form.touched.title && form.errors.title && form.errors.title}
-        </Container>
-      )}
+      render={({ field, form }: FieldProps<IFormValue>) => {
+        console.log(form);
+        console.log(label);
+        return (
+          <Container>
+            <Label>{label}
+            {form.touched[label as unknown as number] && form.errors[label as unknown as number] && (
+              <ErrorMessage>{form.errors[label as unknown as number]}</ErrorMessage>
+            )}
+            </Label>
+            {textArea ? (
+              <TextArea {...field} placeholder={`Type your ${label}`} />
+            ) : (
+              <Input
+                type="text"
+                {...field}
+                placeholder={`Type your ${label}`}
+              />
+            )}
+          </Container>
+        );
+      }}
     />
   );
 }

@@ -6,6 +6,7 @@ export const Container = styled.div<ICentered>`
   display: grid;
   grid-auto-flow: column;
   justify-content: flex-start;
+  align-content: flex-end;
   ${({ centered }) => centered && `
     margin: 0.5em auto;
   `}

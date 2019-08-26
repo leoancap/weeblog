@@ -29,7 +29,7 @@ const postsReducer: IPostsReducer = (
       return {
         ...state,
         loadingStatus: LoadingStatus.DONE,
-        posts: (payload as IPost[]),
+        posts: (payload as IPost[])
       };
     case PostsActionTypes.FETCH_POSTS_FAILURE:
       return {

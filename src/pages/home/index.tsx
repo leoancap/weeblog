@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ThunkDispatch } from "redux-thunk";
@@ -9,6 +9,7 @@ import {
   Loading,
   PostList,
   Button,
+  AddPostForm,
 } from "#components";
 
 import { fetchPosts } from "#actions";
@@ -46,6 +47,9 @@ function HomePage({
   filteredPosts,
   loading,
 }: IProps) {
+  
+  const [isAddingPost, setIsAddingPost] = useState(false);
+
   useLayoutEffect(() => {
     fetchPostsDispatch();
   }, [fetchPostsDispatch]);
@@ -56,10 +60,12 @@ function HomePage({
 
   return loading ? (
     <Loading />
+  ) : isAddingPost ? (
+    <AddPostForm onAfterSubmit={() => setIsAddingPost(false)} />
   ) : (
     <Container>
       <LeftPanel>
-        <Button to="/add-post" label="Add Post" />
+        <Button onClick={() => setIsAddingPost(true)} label="Add Post" />
         <CategoryFilter />
       </LeftPanel>
       <PostList posts={filteredPosts} />

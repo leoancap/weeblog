@@ -10,7 +10,7 @@ interface IProps {
 export function CategoriesListing({ categories, centered = false }:IProps) {
   return (
     <Container centered={centered}>
-      {categories.map((category, index) => (
+      {categories && categories.map((category, index) => (
         <Category key={category + index.valueOf()}>{`#${category}`}</Category>
       ))}
     </Container>

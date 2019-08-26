@@ -23,7 +23,9 @@ function PostPage({
     params: { postID },
   },
 }: IProps) {
+
   const [post, setPost] = useState<IPost | null>(null);
+
   const [error, setError] = useState<boolean>(false);
 
   useLayoutEffect(() => {

@@ -32,6 +32,8 @@ export const Label = styled.span``;
 
 export const SubmitButton = styled.button<IColor>`
   width: 10em;
+  cursor: pointer;
+  outline: none;
   font-size: 23px;
   font-weight: bold;
   padding: 0.5em;

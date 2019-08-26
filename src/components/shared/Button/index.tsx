@@ -7,6 +7,7 @@ interface IButton {
   color?: string;
   label: string;
   to?: string;
+  onClick?: (event:React.SyntheticEvent) => void
 }
 
 export function Button({
@@ -14,7 +15,8 @@ export function Button({
   color = "#F6F7F8",
   label,
   to,
-}: IButton) {
+  onClick
+}: IButton):JSX.Element {
   return (
     <Container>
       {to ? (
@@ -22,7 +24,7 @@ export function Button({
           <Label>{label}</Label>
         </LinkButton>
       ) : (
-        <SubmitButton background={background} color={color} type="submit">
+        <SubmitButton onClick={onClick} background={background} color={color} type="submit">
           {label}
         </SubmitButton>
       )}

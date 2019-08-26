@@ -31,3 +31,11 @@ export const TextArea = styled.textarea`
   resize: vertical;
   word-break: break-word;
 `;
+
+export const ErrorMessage = styled.span`
+  margin: 1em 0;
+  font-size: 22px;
+  text-transform: capitalize;
+  color: #C32D2A;
+
+`
