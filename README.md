@@ -95,12 +95,17 @@ src/
 
 ## Styling
 
-- It uses styled-components, a CSS-in-JS solution. This was your styles are only coupled to the specific component. It also provides a more performant stylesheet than common CSS solutions such as Sass.
+- It uses styled-components, a CSS-in-JS solution. This way your styles are only coupled to the specific component. It also provides a more performant stylesheet than common CSS solutions such as Sass.
 
 ## Static types
 
 - It uses typescript with some strict rules. No implicity and explicity any.
 - Typescript will save you mental energy in the long run
+
+## Modularization
+
+- It uses the package.json alias property to turn every folder in a modular in itself. With such practice, you get a cleaner code across your files. To import a component you just write. 
+```import { Button, InputField } from "#components";```
 
 ## Bundling and building
 
