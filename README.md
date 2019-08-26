@@ -53,7 +53,7 @@ yarn test
 - Typescript
 - Styled-Components
 
-## Devopment Steps
+## Development Steps
 
 1. Add app specific types(Post items)
 2. Create action types(FETCH_POSTS,SET_POSTS)
