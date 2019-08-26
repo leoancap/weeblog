@@ -7,9 +7,12 @@ export const Container = styled.div`
   margin: 0 auto;
   max-width: 98%;
   width: 60em;
+  @media screen and (max-width: 769px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const LeftPanel = styled.div`
   display: grid;
   align-content: flex-start;
-`
+`;

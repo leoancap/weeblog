@@ -1,15 +1,17 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators, Dispatch } from "redux";
 
-import { resetCategories, toggleCategory } from '#actions';
-import { getCategoriesFromPosts } from '#selectors';
-import { IAppActions, IAppState } from '#storeTypes';
+import { resetCategories, toggleCategory } from "#actions";
+import { getCategoriesFromPosts } from "#selectors";
+import { IAppActions, IAppState } from "#storeTypes";
 import {
-  CategoriesListing, CategoryHeading, CategoryStyled, Container,
-} from './styles';
-import { Button } from '#components';
-
+  CategoriesListing,
+  CategoryHeading,
+  CategoryStyled,
+  Container,
+  XIcon,
+} from "./styles";
 
 interface IStateToProps {
   possibleCategories: string[];
@@ -30,7 +32,6 @@ function CategoryFilterComponent({
 }: IProps) {
   return (
     <Container>
-      
       <CategoryHeading>Categories</CategoryHeading>
       <CategoriesListing>
         <CategoryStyled
@@ -39,15 +40,18 @@ function CategoryFilterComponent({
         >
           All
         </CategoryStyled>
-        {possibleCategories.map((category) => (
-          <CategoryStyled
-            onClick={() => toggleCategoryDispatch(category)}
-            key={category}
-            isSelected={selectedCategories.includes(category)}
-          >
-            {`#${category}`}
-          </CategoryStyled>
-        ))}
+        {possibleCategories.map(category => {
+          const isSelected = selectedCategories.includes(category)
+          return (
+            <CategoryStyled
+              onClick={() => toggleCategoryDispatch(category)}
+              key={category}
+              isSelected={isSelected}
+            >
+              {'#' + category} {isSelected && <XIcon>✘</XIcon>} 
+            </CategoryStyled>
+          );
+        })}
       </CategoriesListing>
     </Container>
   );

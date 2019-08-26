@@ -17,8 +17,6 @@ export function InputField({ label, textArea = false }: IProps) {
     <Field
       name={label}
       render={({ field, form }: FieldProps<IFormValue>) => {
-        console.log(form);
-        console.log(label);
         return (
           <Container>
             <Label>{label}

@@ -36,7 +36,6 @@ function AddPost({ addPostDispatch, onAfterSubmit }: IProps) {
           { title, content }: IFormikValues,
           actions: FormikActions<IFormikValues>,
         ) => {
-          console.log({ title, content, actions });
           if (!title) {
             actions.setFieldError("title", " cannot be empty");
             return;

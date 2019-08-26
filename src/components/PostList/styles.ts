@@ -6,6 +6,7 @@ export const Container = styled.div`
   grid-auto-rows: 40vh;
   grid-gap: 2em;
   @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
     padding: 0.5em;
   }
   @media screen and (max-width: 768px) {
