@@ -20,7 +20,6 @@ module.exports = {
     "#constants": "<rootDir>/src/constants",
     "#customHooks": "<rootDir>/src/customHooks",
     "#domainTypes": "<rootDir>/src/types",
-    "#pages": "<rootDir>/src/pages",
     "#router": "<rootDir>/src/router",
     "#selectors": "<rootDir>/src/selectors",
     "#services": "<rootDir>/src/services",
