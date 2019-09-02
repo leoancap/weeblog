@@ -1,2 +1,2 @@
-export * from './api'
-export * from './fakeDB'
+export * from "./api";
+export * from "./firebase";

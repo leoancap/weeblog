@@ -11,22 +11,16 @@ import {
   Button,
   AddPostForm,
 } from "#components";
-
 import { fetchPosts } from "#actions";
-
 import {
   filterPostsByCategory,
   filterPostsByText,
   getCategoriesFromPosts,
   removeUnexistingCategories,
 } from "#selectors";
-
 import { IPost } from "#domainTypes";
-
 import { IAppActions, IAppState } from "#storeTypes";
-
 import { LoadingStatus } from "#constants";
-
 import { Container, LeftPanel } from "./styles";
 
 interface IDispatchToProps {
@@ -47,7 +41,6 @@ function HomePage({
   filteredPosts,
   loading,
 }: IProps) {
-  
   const [isAddingPost, setIsAddingPost] = useState(false);
 
   useLayoutEffect(() => {

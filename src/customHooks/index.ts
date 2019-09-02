@@ -1,1 +1,1 @@
-export * from './useIsScrolled';
+export * from "./useIsScrolled";
