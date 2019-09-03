@@ -2,8 +2,8 @@
 
 ## demo 
 
-https://bloggy.leoancap.now.sh for https://jsonplaceholder.typicode.com/ (no persistence)
-https://bloggy-lo3e5v15n.now.sh/ for firebase (with persistence)
+- https://bloggy.leoancap.now.sh for https://jsonplaceholder.typicode.com/ (no persistence)
+- https://bloggy-lo3e5v15n.now.sh/ for firebase (with persistence)
 
 ## Installation
 
