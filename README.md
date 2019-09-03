@@ -2,7 +2,8 @@
 
 ## demo 
 
-https://bloggy.leoancap.now.sh
+https://bloggy.leoancap.now.sh for https://jsonplaceholder.typicode.com/ (no persistence)
+https://bloggy-lo3e5v15n.now.sh/ for firebase (with persistence)
 
 ## Installation
 
@@ -117,6 +118,11 @@ src/
 
 - Served on Zeit now as static pages. To deploy in your account just run in the project folder:
 ``` npx now ```
+
+## API
+
+- At first it used jsonplaceholder.typicode.com/ for the mocked posts but since they don't
+  support post requests it was changed to firebase so that posts can be saved. ( Branch: Feat_addFirebase )
 
 ## Features
 
